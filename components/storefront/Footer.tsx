@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import FlowerLogo from './FlowerLogo';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
@@ -22,8 +23,12 @@ export default function Footer() {
         {/* Brand Block */}
         <div className="md:col-span-2">
           <Link href="/" className="flex items-center mb-6 group">
+            <FlowerLogo className="w-20 h-20 text-brand-blue-800 group-hover:text-brand-blue-600 transition-colors duration-300 mr-2.5 flex-shrink-0" />
             <span className="relative flex flex-col items-start select-none">
               <span className="font-serif leading-[0.9] tracking-tight">
+                <span className="font-light text-[22px] tracking-[0.12em] text-brand-blue-800 mr-1 group-hover:text-brand-blue-600 transition-colors duration-300">
+                  The
+                </span>
                 <span className="font-black text-[34px] bg-gradient-to-br from-brand-blue-800 via-brand-blue-500 to-brand-blue-300 bg-clip-text text-transparent group-hover:from-brand-blue-600 group-hover:via-brand-blue-400 group-hover:to-brand-blue-200 transition-all duration-500">
                   SHA
                 </span>
@@ -38,7 +43,7 @@ export default function Footer() {
             Handcrafted editorial crochet items made from premium, sustainably sourced natural fibers. Slowly made, built to last, and designed to bring warmth to your life.
           </p>
           <p className="text-xs text-brand-muted">
-            &copy; {new Date().getFullYear()} Sha closet. All rights reserved.
+            &copy; {new Date().getFullYear()} the SHA Closet. All rights reserved.
           </p>
         </div>
 

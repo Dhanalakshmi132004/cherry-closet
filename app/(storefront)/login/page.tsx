@@ -158,7 +158,7 @@ function LoginForm() {
         </button>
 
         <p className="text-center font-sans text-xs text-brand-muted">
-          New to The Closet?{' '}
+          New to the SHA Closet?{' '}
           <Link href="/signup" className="text-brand-terracotta hover:underline font-semibold">
             Create Account
           </Link>

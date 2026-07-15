@@ -19,11 +19,11 @@ const poppinsSerif = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "The Closet | Handcrafted Crochet Shop",
+  title: "the SHA Closet | Handcrafted Crochet Shop",
   description: "Exquisite, warm, editorial-grade handcrafted crochet cardigans, bags, home decor, and plushies. Made to order with premium natural fibers.",
   keywords: ["crochet", "handcrafted", "handmade", "fashion", "decor", "terracotta", "slow fashion"],
   openGraph: {
-    title: "The Closet | Handcrafted Crochet Shop",
+    title: "the SHA Closet | Handcrafted Crochet Shop",
     description: "Exquisite, warm, editorial-grade handcrafted crochet cardigans, bags, home decor, and plushies.",
     type: "website",
   },

@@ -2,9 +2,9 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { prisma } from '@/lib/prisma';
-import { 
-  ArrowUpRight, 
-  ChevronRight, 
+import {
+  ArrowUpRight,
+  ChevronRight,
   Heart,
   ShieldCheck,
   CheckCircle2,
@@ -37,37 +37,37 @@ export default async function HomePage() {
 
   return (
     <div className="bg-brand-white min-h-screen text-brand-dark overflow-hidden font-sans">
-      
+
       {/* 1. HERO SECTION */}
       <section className="relative pt-6 pb-20 w-full">
         {/* Background Gradient & Huge Text */}
         <div className="relative overflow-hidden bg-gradient-to-b from-brand-blue-100 via-brand-blue-50 to-brand-white w-full min-h-[700px] flex flex-col items-center justify-center border-b border-brand-blue-100" style={{ borderBottomLeftRadius: '50% 10%', borderBottomRightRadius: '50% 10%' }}>
-          
+
           {/* Huge Faded Background Text */}
           <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none z-0">
             <h1 className="text-[12vw] font-serif font-black text-brand-white/80 tracking-tighter leading-none mix-blend-overlay blur-[2px]">
-              SHA CLOSET
+              the SHA Closet
             </h1>
           </div>
 
           <div className="absolute top-[35%] left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none z-0">
             <h1 className="text-[12vw] font-serif font-black text-brand-white/50 tracking-tighter leading-none mix-blend-overlay">
-              SHA CLOSET
+              the SHA Closet
             </h1>
           </div>
 
           {/* Centerpiece Image (The "Phone" equivalent) */}
           <div className="relative z-20 animate-float-delayed mt-20 sm:mt-10">
             <div className="w-[300px] h-[550px] sm:w-[350px] sm:h-[650px] rounded-[48px] border-8 border-brand-white shadow-premium bg-brand-white overflow-hidden relative transform rotate-[-5deg] hover:rotate-0 transition-transform duration-700">
-              <Image 
-                src="/banner.png" 
-                alt="Sha closet premium crochet"
+              <Image
+                src="/banner.png"
+                alt="the SHA Closet premium crochet"
                 fill
                 priority
                 className="object-cover object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-blue-900/40 to-transparent" />
-              
+
               {/* Internal Floating UI Element mimicking mobile notification */}
               <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-[85%] bg-brand-white/80 backdrop-blur-md rounded-2xl p-4 shadow-lg flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-brand-blue-600 flex items-center justify-center text-brand-white flex-shrink-0">
@@ -82,27 +82,27 @@ export default async function HomePage() {
           </div>
 
           {/* Floating Glass Pill 1 — Left: Orders */}
-          <div className="absolute z-30 top-[38%] left-[3%] sm:left-[10%] lg:left-[16%] animate-fade-in-left" style={{animationDelay:'0.2s'}}>
+          <div className="absolute z-30 top-[38%] left-[3%] sm:left-[10%] lg:left-[16%] animate-fade-in-left" style={{ animationDelay: '0.2s' }}>
             <div className="bg-brand-white/85 backdrop-blur-xl border border-brand-white shadow-2xl rounded-2xl p-4 flex items-center gap-3 max-w-[210px] hover:-translate-y-1 transition-transform duration-300">
               <div className="w-11 h-11 rounded-xl bg-brand-blue-100 flex items-center justify-center text-brand-blue-600 flex-shrink-0">
                 <Award size={22} />
               </div>
               <div>
-                <h4 className="text-sm font-bold text-brand-dark leading-tight">1,400+ Orders<br/>Delivered</h4>
+                <h4 className="text-sm font-bold text-brand-dark leading-tight">1,400+ Orders<br />Delivered</h4>
                 <p className="text-[10px] text-brand-muted mt-0.5">Will Yours Be Next?</p>
               </div>
             </div>
           </div>
 
           {/* Floating Glass Pill 2 — Left Bottom: Rating */}
-          <div className="absolute z-30 top-[62%] left-[2%] sm:left-[8%] lg:left-[14%] animate-fade-in-left" style={{animationDelay:'0.5s'}}>
+          <div className="absolute z-30 top-[62%] left-[2%] sm:left-[8%] lg:left-[14%] animate-fade-in-left" style={{ animationDelay: '0.5s' }}>
             <div className="bg-brand-white/85 backdrop-blur-xl border border-brand-white shadow-xl rounded-2xl p-3 flex items-center gap-3 hover:-translate-y-1 transition-transform duration-300">
               <div className="w-10 h-10 rounded-xl bg-yellow-50 flex items-center justify-center text-yellow-500 flex-shrink-0">
                 <Star size={20} fill="currentColor" />
               </div>
               <div>
                 <div className="flex items-center gap-1">
-                  {[1,2,3,4,5].map(s => <Star key={s} size={8} fill="#EAB308" className="text-yellow-400"/>)}
+                  {[1, 2, 3, 4, 5].map(s => <Star key={s} size={8} fill="#EAB308" className="text-yellow-400" />)}
                 </div>
                 <p className="text-[11px] font-bold text-brand-dark mt-0.5">5.0 · 2,300 Reviews</p>
               </div>
@@ -110,7 +110,7 @@ export default async function HomePage() {
           </div>
 
           {/* Floating Glass Pill 3 — Left Mid: Eco */}
-          <div className="hidden lg:flex absolute z-30 top-[22%] left-[5%] lg:left-[10%] animate-fade-in-left" style={{animationDelay:'0.7s'}}>
+          <div className="hidden lg:flex absolute z-30 top-[22%] left-[5%] lg:left-[10%] animate-fade-in-left" style={{ animationDelay: '0.7s' }}>
             <div className="bg-brand-white/85 backdrop-blur-xl border border-brand-white shadow-xl rounded-full px-4 py-2.5 items-center gap-2 hover:-translate-y-1 transition-transform duration-300 flex">
               <Leaf size={16} className="text-green-500" />
               <span className="text-xs font-bold text-brand-dark">100% Organic</span>
@@ -118,7 +118,7 @@ export default async function HomePage() {
           </div>
 
           {/* Floating Glass Pill 4 — Right: Artisan */}
-          <div className="absolute z-30 top-[22%] right-[3%] sm:right-[10%] lg:right-[16%] animate-fade-in-right" style={{animationDelay:'0.3s'}}>
+          <div className="absolute z-30 top-[22%] right-[3%] sm:right-[10%] lg:right-[16%] animate-fade-in-right" style={{ animationDelay: '0.3s' }}>
             <div className="bg-brand-white/85 backdrop-blur-xl border border-brand-white shadow-2xl rounded-full px-4 py-3 flex items-center gap-3 hover:-translate-y-1 transition-transform duration-300">
               <div className="w-9 h-9 rounded-full border-2 border-brand-blue-100 overflow-hidden relative flex-shrink-0">
                 <Image src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="Designer" fill className="object-cover" />
@@ -131,7 +131,7 @@ export default async function HomePage() {
           </div>
 
           {/* Floating Glass Pill 5 — Right Mid: Fast delivery */}
-          <div className="absolute z-30 top-[45%] right-[2%] sm:right-[8%] lg:right-[13%] animate-fade-in-right" style={{animationDelay:'0.6s'}}>
+          <div className="absolute z-30 top-[45%] right-[2%] sm:right-[8%] lg:right-[13%] animate-fade-in-right" style={{ animationDelay: '0.6s' }}>
             <div className="bg-brand-white/85 backdrop-blur-xl border border-brand-white shadow-xl rounded-2xl p-3 flex items-center gap-3 hover:-translate-y-1 transition-transform duration-300">
               <div className="w-10 h-10 rounded-xl bg-brand-blue-50 flex items-center justify-center text-brand-blue-600 flex-shrink-0">
                 <Truck size={18} />
@@ -144,7 +144,7 @@ export default async function HomePage() {
           </div>
 
           {/* Floating Glass Pill 6 — Right Bottom: Custom order */}
-          <div className="hidden lg:flex absolute z-30 top-[65%] right-[4%] lg:right-[12%] animate-fade-in-right" style={{animationDelay:'0.8s'}}>
+          <div className="hidden lg:flex absolute z-30 top-[65%] right-[4%] lg:right-[12%] animate-fade-in-right" style={{ animationDelay: '0.8s' }}>
             <div className="bg-brand-white/85 backdrop-blur-xl border border-brand-white shadow-xl rounded-full px-4 py-2.5 items-center gap-2 hover:-translate-y-1 transition-transform duration-300 flex">
               <Palette size={16} className="text-brand-blue-600" />
               <span className="text-xs font-bold text-brand-dark">Custom Colorways</span>
@@ -152,35 +152,35 @@ export default async function HomePage() {
           </div>
 
           {/* Floating Icon Orb — Top Left glow */}
-          <div className="hidden lg:block absolute z-10 top-[12%] left-[22%] animate-float" style={{animationDelay:'1s'}}>
+          <div className="hidden lg:block absolute z-10 top-[12%] left-[22%] animate-float" style={{ animationDelay: '1s' }}>
             <div className="w-12 h-12 rounded-2xl bg-brand-blue-600/20 backdrop-blur-sm border border-brand-blue-200/50 flex items-center justify-center shadow-lg">
               <Scissors size={20} className="text-brand-blue-600" />
             </div>
           </div>
 
           {/* Floating Icon Orb — Top Right glow */}
-          <div className="hidden lg:block absolute z-10 top-[15%] right-[22%] animate-float" style={{animationDelay:'1.4s'}}>
+          <div className="hidden lg:block absolute z-10 top-[15%] right-[22%] animate-float" style={{ animationDelay: '1.4s' }}>
             <div className="w-12 h-12 rounded-2xl bg-brand-blue-400/20 backdrop-blur-sm border border-brand-blue-200/50 flex items-center justify-center shadow-lg">
               <Heart size={20} className="text-brand-blue-500" />
             </div>
           </div>
 
           {/* Floating Icon Orb — Bottom Left */}
-          <div className="hidden lg:block absolute z-10 bottom-[28%] left-[24%] animate-float" style={{animationDelay:'0.6s'}}>
+          <div className="hidden lg:block absolute z-10 bottom-[28%] left-[24%] animate-float" style={{ animationDelay: '0.6s' }}>
             <div className="w-10 h-10 rounded-xl bg-brand-white/60 backdrop-blur-sm border border-brand-white shadow-md flex items-center justify-center">
               <Sparkles size={18} className="text-brand-blue-400" />
             </div>
           </div>
 
           {/* Floating Icon Orb — Bottom Right */}
-          <div className="hidden lg:block absolute z-10 bottom-[30%] right-[24%] animate-float" style={{animationDelay:'1.2s'}}>
+          <div className="hidden lg:block absolute z-10 bottom-[30%] right-[24%] animate-float" style={{ animationDelay: '1.2s' }}>
             <div className="w-10 h-10 rounded-xl bg-brand-white/60 backdrop-blur-sm border border-brand-white shadow-md flex items-center justify-center">
               <Package size={18} className="text-brand-blue-400" />
             </div>
           </div>
 
           {/* Pre-subscribe CTA Pill — Bottom Center */}
-          <div className="absolute z-30 bottom-10 left-1/2 -translate-x-1/2 animate-fade-in-up" style={{animationDelay:'1s'}}>
+          <div className="absolute z-30 bottom-10 left-1/2 -translate-x-1/2 animate-fade-in-up" style={{ animationDelay: '1s' }}>
             <Link href="/shop" className="bg-brand-white/90 backdrop-blur-xl border border-brand-white shadow-2xl rounded-full px-7 py-3.5 flex items-center gap-3 hover:bg-brand-white hover:shadow-brand-blue-100 transition-all duration-300 group">
               <div className="w-6 h-6 rounded-full bg-brand-blue-600 flex items-center justify-center">
                 <Sparkles size={12} className="text-brand-white" />
@@ -191,10 +191,10 @@ export default async function HomePage() {
           </div>
 
           {/* Faded Floating Text Badges */}
-          <div className="absolute z-10 bottom-[22%] right-[8%] rotate-12 opacity-40 bg-brand-white/40 backdrop-blur-sm px-5 py-1.5 rounded-full border border-brand-white/40 animate-float" style={{animationDelay:'0.9s'}}>
+          <div className="absolute z-10 bottom-[22%] right-[8%] rotate-12 opacity-40 bg-brand-white/40 backdrop-blur-sm px-5 py-1.5 rounded-full border border-brand-white/40 animate-float" style={{ animationDelay: '0.9s' }}>
             <span className="text-xs font-bold text-brand-dark uppercase tracking-widest">PREMIUM YARN</span>
           </div>
-          <div className="absolute z-10 bottom-[38%] left-[6%] -rotate-6 opacity-40 bg-brand-white/40 backdrop-blur-sm px-5 py-1.5 rounded-full border border-brand-white/40 animate-float" style={{animationDelay:'1.5s'}}>
+          <div className="absolute z-10 bottom-[38%] left-[6%] -rotate-6 opacity-40 bg-brand-white/40 backdrop-blur-sm px-5 py-1.5 rounded-full border border-brand-white/40 animate-float" style={{ animationDelay: '1.5s' }}>
             <span className="text-xs font-bold text-brand-dark uppercase tracking-widest">HANDCRAFTED</span>
           </div>
         </div>
@@ -234,15 +234,15 @@ export default async function HomePage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[250px]">
-          
+
           {/* Large Left Card - Step by Step */}
           <div className="md:col-span-8 md:row-span-2 rounded-[32px] overflow-hidden relative group">
             <div className="absolute inset-0 bg-brand-blue-50/50" />
-            <Image 
-              src="https://images.unsplash.com/photo-1609388492577-c6e7d7e3e1e0?auto=format&fit=crop&w=1200&q=80" 
-              alt="Crochet Yarn and Hooks" 
-              fill 
-              className="object-cover opacity-70 mix-blend-multiply group-hover:scale-105 transition-transform duration-700" 
+            <Image
+              src="https://images.unsplash.com/photo-1609388492577-c6e7d7e3e1e0?auto=format&fit=crop&w=1200&q=80"
+              alt="Crochet Yarn and Hooks"
+              fill
+              className="object-cover opacity-70 mix-blend-multiply group-hover:scale-105 transition-transform duration-700"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-brand-white/90 via-brand-white/40 to-transparent p-10 flex flex-col justify-center w-2/3">
               <div className="flex items-center gap-3 mb-4">
@@ -250,12 +250,12 @@ export default async function HomePage() {
                 <span className="text-brand-blue-600 text-xs font-bold uppercase tracking-widest">Craft Guide</span>
               </div>
               <h2 className="font-serif text-4xl sm:text-5xl font-black text-brand-dark leading-[1.1] uppercase">
-                HOW CROCHET<br/>
-                WORKS: A STEP-<br/>
+                HOW CROCHET<br />
+                WORKS: A STEP-<br />
                 BY-STEP GUIDE
               </h2>
             </div>
-            
+
             {/* Overlapping Subscribe Glass Card */}
             <div className="absolute bottom-8 right-8 bg-brand-white/70 backdrop-blur-xl border border-brand-white shadow-2xl rounded-[24px] p-6 w-[280px] z-10 hover:-translate-y-2 transition-transform duration-300">
               <span className="text-brand-blue-400 font-serif font-bold text-xl opacity-50 mb-2 block">01</span>
@@ -271,11 +271,11 @@ export default async function HomePage() {
 
           {/* Right Vertical Card */}
           <div className="md:col-span-4 md:row-span-2 rounded-[32px] bg-gradient-to-br from-brand-blue-400 to-brand-blue-800 relative overflow-hidden group border border-brand-blue-300 p-8 flex flex-col justify-between">
-            <Image 
-              src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80" 
-              alt="Colorful Yarn Balls" 
-              fill 
-              className="object-cover opacity-30 mix-blend-overlay group-hover:scale-105 transition-transform duration-700" 
+            <Image
+              src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80"
+              alt="Colorful Yarn Balls"
+              fill
+              className="object-cover opacity-30 mix-blend-overlay group-hover:scale-105 transition-transform duration-700"
             />
             <div className="relative z-10 flex flex-col gap-6 h-full justify-center">
               <div className="flex items-center gap-3">
@@ -301,21 +301,21 @@ export default async function HomePage() {
               <span className="text-brand-blue-400 font-serif font-bold text-xl opacity-50 mb-2 block">03</span>
               <h3 className="font-serif text-3xl font-bold text-brand-white uppercase">GET UPDATES</h3>
             </div>
-            
+
             {/* Center Phone Graphic Mockup */}
             <div className="flex-1 h-full flex items-center justify-center relative z-10 mt-10 md:mt-0">
-               <div className="w-[180px] h-[300px] border-4 border-gray-800 rounded-[32px] overflow-hidden translate-y-[50px] group-hover:translate-y-[30px] transition-transform duration-500 shadow-2xl relative bg-brand-blue-950">
-                 <div className="absolute top-4 left-1/2 -translate-x-1/2 text-brand-white/50 text-xs">9:41</div>
-                 <div className="absolute top-16 left-4 right-4 bg-brand-white/10 backdrop-blur-md rounded-xl p-3 flex gap-3 border border-brand-white/20">
-                   <div className="w-8 h-8 rounded-full bg-brand-blue-600 flex items-center justify-center text-brand-white">
-                     <Mail size={14} />
-                   </div>
-                   <div>
-                     <p className="text-[10px] font-bold text-brand-white">Order Shipped!</p>
-                     <p className="text-[8px] text-brand-blue-200 mt-1">ETA: 3 Days.</p>
-                   </div>
-                 </div>
-               </div>
+              <div className="w-[180px] h-[300px] border-4 border-gray-800 rounded-[32px] overflow-hidden translate-y-[50px] group-hover:translate-y-[30px] transition-transform duration-500 shadow-2xl relative bg-brand-blue-950">
+                <div className="absolute top-4 left-1/2 -translate-x-1/2 text-brand-white/50 text-xs">9:41</div>
+                <div className="absolute top-16 left-4 right-4 bg-brand-white/10 backdrop-blur-md rounded-xl p-3 flex gap-3 border border-brand-white/20">
+                  <div className="w-8 h-8 rounded-full bg-brand-blue-600 flex items-center justify-center text-brand-white">
+                    <Mail size={14} />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-bold text-brand-white">Order Shipped!</p>
+                    <p className="text-[8px] text-brand-blue-200 mt-1">ETA: 3 Days.</p>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div className="p-10 flex-1 z-10 text-right">
@@ -328,7 +328,7 @@ export default async function HomePage() {
                 </span>
               </div>
             </div>
-            
+
             {/* Background decorative blob */}
             <div className="absolute bottom-[-50%] right-[20%] w-[300px] h-[300px] bg-brand-blue-600/30 blur-[80px] rounded-full pointer-events-none" />
           </div>
@@ -341,7 +341,7 @@ export default async function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           <div className="text-center mb-16">
             <span className="text-brand-blue-600 font-bold text-xs uppercase tracking-widest bg-brand-white border border-brand-blue-100 px-4 py-1.5 rounded-full shadow-sm">Our Promise</span>
-            <h2 className="font-serif text-4xl font-black text-brand-dark mt-4">Why Sha closet?</h2>
+            <h2 className="font-serif text-4xl font-black text-brand-dark mt-4">Why the SHA Closet?</h2>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
@@ -406,9 +406,9 @@ export default async function HomePage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {products.map((product, idx) => {
             const primaryImg = product.images[0]?.url || 'https://images.unsplash.com/photo-1576243345690-4e4b79b63288?auto=format&fit=crop&w=600&q=80';
-            
+
             return (
-              <div 
+              <div
                 key={product.id}
                 className={`group flex flex-col space-y-4 animate-fade-in-up bg-brand-white p-3 rounded-[24px] border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300`}
                 style={{ animationDelay: `${(idx + 1) * 150}ms` }}
@@ -441,7 +441,7 @@ export default async function HomePage() {
                       {product.materials ? product.materials.split(',')[0] : '100% Cotton'}
                     </span>
                   </div>
-                  
+
                   {/* Price */}
                   <span className="font-bold text-sm text-brand-blue-600">
                     ${product.basePrice.toFixed(0)}
@@ -457,26 +457,26 @@ export default async function HomePage() {
       <section className="py-24 bg-brand-blue-50/50 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-blue-100 rounded-full blur-[100px] opacity-50 pointer-events-none" />
         <div className="absolute bottom-0 left-[-10%] w-[400px] h-[400px] bg-brand-white rounded-full blur-[80px] pointer-events-none" />
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
           <div className="text-center mb-16 space-y-4">
-             <span className="text-brand-blue-600 font-bold text-xs uppercase tracking-widest bg-brand-white border border-brand-blue-100 px-4 py-1.5 rounded-full shadow-sm">Gentle Touches</span>
-             <h2 className="font-serif text-4xl sm:text-5xl text-brand-dark font-black">Baby Clothing Collection</h2>
-             <p className="text-brand-muted text-base max-w-xl mx-auto">Ultra-soft, hypoallergenic natural fibers stitched with love. Keep your little ones warm and cozy.</p>
+            <span className="text-brand-blue-600 font-bold text-xs uppercase tracking-widest bg-brand-white border border-brand-blue-100 px-4 py-1.5 rounded-full shadow-sm">Gentle Touches</span>
+            <h2 className="font-serif text-4xl sm:text-5xl text-brand-dark font-black">Baby Clothing Collection</h2>
+            <p className="text-brand-muted text-base max-w-xl mx-auto">Ultra-soft, hypoallergenic natural fibers stitched with love. Keep your little ones warm and cozy.</p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {products.slice(0, 3).map((product, idx) => {
               const primaryImg = 'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=600&q=80';
               return (
                 <div key={`baby-${product.id}`} className="group relative rounded-[32px] overflow-hidden bg-brand-white border border-brand-blue-100 shadow-premium p-4 hover:-translate-y-2 transition-all duration-500">
-                   <div className="relative aspect-square rounded-[24px] overflow-hidden mb-4">
-                     <Image src={primaryImg} alt="Baby Clothing" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-                   </div>
-                   <div className="text-center px-4 pb-2">
-                     <h3 className="font-bold text-brand-dark text-lg mb-1 group-hover:text-brand-blue-600 transition-colors">{product.title}</h3>
-                     <p className="text-sm font-bold text-brand-blue-400">${product.basePrice.toFixed(0)}</p>
-                   </div>
+                  <div className="relative aspect-square rounded-[24px] overflow-hidden mb-4">
+                    <Image src={primaryImg} alt="Baby Clothing" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                  </div>
+                  <div className="text-center px-4 pb-2">
+                    <h3 className="font-bold text-brand-dark text-lg mb-1 group-hover:text-brand-blue-600 transition-colors">{product.title}</h3>
+                    <p className="text-sm font-bold text-brand-blue-400">${product.basePrice.toFixed(0)}</p>
+                  </div>
                 </div>
               )
             })}
@@ -489,18 +489,18 @@ export default async function HomePage() {
         <div className="bg-brand-dark rounded-[48px] overflow-hidden flex flex-col lg:flex-row relative shadow-2xl group">
           {/* Left: Huge sticky image */}
           <div className="lg:w-1/2 relative min-h-[400px] lg:min-h-full">
-            <Image 
-              src="https://images.unsplash.com/photo-1582769923195-c6e60b29cebd?auto=format&fit=crop&w=800&q=80" 
-              alt="Crochet Flowers" 
-              fill 
+            <Image
+              src="https://images.unsplash.com/photo-1582769923195-c6e60b29cebd?auto=format&fit=crop&w=800&q=80"
+              alt="Crochet Flowers"
+              fill
               className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-1000"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/80 to-transparent p-12 flex flex-col justify-center">
-               <span className="text-brand-blue-200 font-bold text-xs uppercase tracking-widest mb-4 block">Everlasting Bloom</span>
-               <h2 className="font-serif text-5xl sm:text-6xl text-brand-white font-black leading-[1.1] mb-6">HANDCRAFTED<br/>FLOWER<br/>CROCHET</h2>
-               <Link href="/shop" className="w-fit bg-brand-white text-brand-dark px-8 py-4 rounded-full text-sm font-bold hover:bg-brand-blue-50 transition-colors flex items-center gap-2">
-                 Explore Bouquets <ChevronRight size={16} />
-               </Link>
+              <span className="text-brand-blue-200 font-bold text-xs uppercase tracking-widest mb-4 block">Everlasting Bloom</span>
+              <h2 className="font-serif text-5xl sm:text-6xl text-brand-white font-black leading-[1.1] mb-6">HANDCRAFTED<br />FLOWER<br />CROCHET</h2>
+              <Link href="/shop" className="w-fit bg-brand-white text-brand-dark px-8 py-4 rounded-full text-sm font-bold hover:bg-brand-blue-50 transition-colors flex items-center gap-2">
+                Explore Bouquets <ChevronRight size={16} />
+              </Link>
             </div>
           </div>
 
@@ -524,30 +524,31 @@ export default async function HomePage() {
 
       {/* 4. FINAL CTA SECTION (Mimicking the bottom shape) */}
       <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 text-center">
-         <span className="bg-brand-white border border-gray-200 text-brand-dark px-6 py-2 rounded-full text-xs font-bold tracking-widest uppercase shadow-sm mb-8 inline-block">
-            ABOUT US
-         </span>
-         <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-brand-dark font-black leading-tight uppercase max-w-4xl mx-auto">
-           CRAFTSMANSHIP THAT ACTS BEFORE IT'S TOO LATE
-         </h2>
-         
-         <div className="mt-16 relative w-full h-[300px] max-w-4xl mx-auto">
-           {/* Custom clipped shape matching the bottom image in reference */}
-           <div 
-             className="absolute inset-0 bg-brand-blue-100 rounded-t-[40px] overflow-hidden" 
-             style={{ clipPath: 'polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%)' }}
-           >
-             <Image
-               src="https://images.unsplash.com/photo-1544928147-79a2dbc1f389?auto=format&fit=crop&w=1200&q=80"
-               alt="Crochet Team"
-               fill
-               className="object-cover object-top opacity-50 mix-blend-multiply"
-             />
-           </div>
-         </div>
+        <span className="bg-brand-white border border-gray-200 text-brand-dark px-6 py-2 rounded-full text-xs font-bold tracking-widest uppercase shadow-sm mb-8 inline-block">
+          ABOUT US
+        </span>
+        <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-brand-dark font-black leading-tight uppercase max-w-4xl mx-auto">
+          CRAFTSMANSHIP THAT ACTS BEFORE IT'S TOO LATE
+        </h2>
+
+        <div className="mt-16 relative w-full h-[300px] max-w-4xl mx-auto">
+          {/* Custom clipped shape matching the bottom image in reference */}
+          <div
+            className="absolute inset-0 bg-brand-blue-100 rounded-t-[40px] overflow-hidden"
+            style={{ clipPath: 'polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%)' }}
+          >
+            <Image
+              src="https://images.unsplash.com/photo-1544928147-79a2dbc1f389?auto=format&fit=crop&w=1200&q=80"
+              alt="Crochet Team"
+              fill
+              className="object-cover object-top opacity-50 mix-blend-multiply"
+            />
+          </div>
+        </div>
       </section>
 
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @keyframes marquee {
           0% { transform: translateX(0%); }
           100% { transform: translateX(-50%); }

@@ -8,13 +8,14 @@ import { useSession, signOut } from 'next-auth/react';
 import { ShoppingBag, User, Menu, X, ChevronDown, LayoutDashboard, LogOut, ShoppingCart } from 'lucide-react';
 import { useCart } from '@/lib/store/useCart';
 import { cn } from '@/lib/utils';
+import FlowerLogo from './FlowerLogo';
 
 export default function Header() {
   const pathname = usePathname();
   const { data: session } = useSession();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
-  
+
   const cartCount = useCart((state) => state.getCartCount());
 
   const user = session?.user as any;
@@ -31,7 +32,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 w-full bg-brand-white/80 backdrop-blur-md border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
-        
+
         {/* Mobile Menu Toggle */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -43,9 +44,13 @@ export default function Header() {
 
         {/* Logo - Unique Styled Brand Mark */}
         <Link href="/" className="flex items-center group">
+          <FlowerLogo className="w-14 h-14 text-brand-blue-800 group-hover:text-brand-blue-600 transition-colors duration-300 mr-2 flex-shrink-0" />
           <span className="relative flex flex-col items-start select-none">
             {/* Main brand name with mixed weight + gradient */}
             <span className="font-serif leading-[0.9] tracking-tight">
+              <span className="font-light text-[18px] tracking-[0.12em] text-brand-blue-800 mr-1 group-hover:text-brand-blue-600 transition-colors duration-300">
+                the
+              </span>
               <span className="font-black text-[28px] bg-gradient-to-br from-brand-blue-800 via-brand-blue-500 to-brand-blue-300 bg-clip-text text-transparent group-hover:from-brand-blue-600 group-hover:via-brand-blue-400 group-hover:to-brand-blue-200 transition-all duration-500">
                 SHA
               </span>
@@ -81,7 +86,7 @@ export default function Header() {
 
         {/* Actions */}
         <div className="flex items-center gap-4 relative">
-          
+
           {/* Cart Icon */}
           <Link
             href="/cart"
@@ -106,12 +111,12 @@ export default function Header() {
                 <User size={22} />
                 <ChevronDown size={14} />
               </button>
-              
+
               {/* Profile Dropdown */}
               {profileDropdownOpen && (
                 <>
-                  <div 
-                    className="fixed inset-0 z-30" 
+                  <div
+                    className="fixed inset-0 z-30"
                     onClick={() => setProfileDropdownOpen(false)}
                   />
                   <div className="absolute right-0 mt-2 w-56 rounded-xl bg-white shadow-premium border border-gray-200 py-2 z-40 transform origin-top-right transition-all">
@@ -119,7 +124,7 @@ export default function Header() {
                       <p className="text-xs text-brand-muted">Signed in as</p>
                       <p className="text-sm font-semibold text-brand-dark truncate">{session.user?.name || session.user?.email}</p>
                     </div>
-                    
+
                     {isAdmin && (
                       <Link
                         href="/admin"
@@ -139,7 +144,7 @@ export default function Header() {
                       <User size={16} />
                       My Account
                     </Link>
-                    
+
                     <Link
                       href="/account/orders"
                       onClick={() => setProfileDropdownOpen(false)}
@@ -186,9 +191,13 @@ export default function Header() {
           <div className="fixed top-0 left-0 bottom-0 w-80 bg-brand-white z-50 p-6 flex flex-col justify-between shadow-premium lg:hidden">
             <div>
               <div className="flex items-center justify-between mb-8">
-                <Link href="/" className="flex items-center">
+                <Link href="/" className="flex items-center group">
+                  <FlowerLogo className="w-11 h-11 text-brand-blue-800 group-hover:text-brand-blue-600 transition-colors duration-300 mr-1.5 flex-shrink-0" />
                   <span className="relative flex flex-col items-start select-none">
                     <span className="font-serif leading-[0.9] tracking-tight">
+                      <span className="font-light text-[14px] tracking-[0.12em] text-brand-blue-800 mr-1">
+                        The
+                      </span>
                       <span className="font-black text-[22px] bg-gradient-to-br from-brand-blue-800 via-brand-blue-500 to-brand-blue-300 bg-clip-text text-transparent">
                         SHA
                       </span>
