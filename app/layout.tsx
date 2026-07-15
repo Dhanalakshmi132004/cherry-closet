@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
-import { Inter, Fraunces } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import Providers from "@/components/Providers";
 
-const inter = Inter({
+const poppinsSans = Poppins({
   subsets: ["latin"],
   variable: "--font-sans",
-  weight: ["400", "500", "600"],
+  weight: ["300", "400", "500", "600", "700", "900"],
   display: "swap",
 });
 
-const fraunces = Fraunces({
+const poppinsSerif = Poppins({
   subsets: ["latin"],
   variable: "--font-serif",
-  weight: ["400", "500", "600"],
+  weight: ["300", "400", "500", "600", "700", "900"],
   display: "swap",
 });
 
@@ -35,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn(inter.variable, fraunces.variable, "scroll-smooth")}>
+    <html lang="en" className={cn(poppinsSans.variable, poppinsSerif.variable, "scroll-smooth")}>
       <body className="bg-brand-cream text-brand-charcoal min-h-screen antialiased selection:bg-brand-terracotta/20">
         <Providers>
           {children}
