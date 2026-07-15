@@ -490,8 +490,8 @@ export default async function HomePage() {
           {/* Left: Huge sticky image */}
           <div className="lg:w-1/2 relative min-h-[400px] lg:min-h-full">
             <Image
-              src="https://images.unsplash.com/photo-1582769923195-c6e60b29cebd?auto=format&fit=crop&w=800&q=80"
-              alt="Crochet Flowers"
+              src="/flower-crochet-hero.png"
+              alt="Handcrafted Crochet Flowers"
               fill
               className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-1000"
             />
@@ -504,17 +504,22 @@ export default async function HomePage() {
             </div>
           </div>
 
-          {/* Right: Scrollable/Grid products */}
-          <div className="lg:w-1/2 p-8 lg:p-12 bg-brand-dark flex items-center justify-center relative">
+          {/* Right: Product grid with flower crochet images */}
+          <div className="lg:w-1/2 p-8 lg:p-12 bg-brand-dark flex flex-col items-center justify-center relative">
             <div className="absolute inset-0 bg-gradient-to-br from-brand-blue-900/20 to-transparent pointer-events-none" />
             <div className="grid grid-cols-2 gap-4 relative z-10 w-full">
-              {products.slice(0, 4).map((product, idx) => (
-                <div key={`flower-${product.id}`} className="bg-brand-white/10 backdrop-blur-md rounded-[24px] p-3 border border-brand-white/10 hover:bg-brand-white/20 transition-colors">
+              {[
+                { src: '/flower-crochet-1.png', title: 'Rose Bouquet', price: '$35' },
+                { src: '/flower-crochet-2.png', title: 'Sunflower Bloom', price: '$28' },
+                { src: '/flower-crochet-3.png', title: 'Tulip Basket', price: '$42' },
+                { src: '/flower-crochet-4.png', title: 'Lavender Wrap', price: '$30' },
+              ].map((item, idx) => (
+                <div key={`flower-${idx}`} className="bg-brand-white/10 backdrop-blur-md rounded-[24px] p-3 border border-brand-white/10 hover:bg-brand-white/20 transition-all duration-300 hover:-translate-y-1">
                   <div className="relative aspect-square rounded-[16px] overflow-hidden mb-3">
-                    <Image src="https://images.unsplash.com/photo-1620023640245-0d268508e734?auto=format&fit=crop&w=400&q=80" alt="Flower Crochet" fill className="object-cover hover:scale-110 transition-transform duration-700" />
+                    <Image src={item.src} alt={item.title} fill className="object-cover hover:scale-110 transition-transform duration-700" />
                   </div>
-                  <h3 className="font-bold text-brand-white text-sm line-clamp-1">{product.title}</h3>
-                  <p className="text-brand-blue-200 text-xs font-semibold mt-1">${product.basePrice.toFixed(0)}</p>
+                  <h3 className="font-bold text-brand-white text-sm line-clamp-1">{item.title}</h3>
+                  <p className="text-brand-blue-200 text-xs font-semibold mt-1">{item.price}</p>
                 </div>
               ))}
             </div>
