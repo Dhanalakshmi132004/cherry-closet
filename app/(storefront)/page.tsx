@@ -9,7 +9,15 @@ import {
   ShieldCheck,
   CheckCircle2,
   Mail,
-  Award
+  Award,
+  Truck,
+  Leaf,
+  Palette,
+  Star,
+  Scissors,
+  Package,
+  RefreshCw,
+  Sparkles
 } from 'lucide-react';
 
 export const revalidate = 60; // Revalidate every minute
@@ -73,23 +81,46 @@ export default async function HomePage() {
             </div>
           </div>
 
-          {/* Floating Glass Pill 1 (Left) */}
-          <div className="absolute z-30 top-[40%] left-[5%] sm:left-[15%] lg:left-[20%] animate-fade-in-left">
-            <div className="bg-brand-white/80 backdrop-blur-xl border border-brand-white shadow-xl rounded-2xl p-4 flex items-center gap-4 max-w-[220px]">
-              <div className="w-12 h-12 rounded-xl bg-brand-blue-100 flex items-center justify-center text-brand-blue-600">
-                <Award size={24} />
+          {/* Floating Glass Pill 1 — Left: Orders */}
+          <div className="absolute z-30 top-[38%] left-[3%] sm:left-[10%] lg:left-[16%] animate-fade-in-left" style={{animationDelay:'0.2s'}}>
+            <div className="bg-brand-white/85 backdrop-blur-xl border border-brand-white shadow-2xl rounded-2xl p-4 flex items-center gap-3 max-w-[210px] hover:-translate-y-1 transition-transform duration-300">
+              <div className="w-11 h-11 rounded-xl bg-brand-blue-100 flex items-center justify-center text-brand-blue-600 flex-shrink-0">
+                <Award size={22} />
               </div>
               <div>
-                <h4 className="text-sm font-bold text-brand-dark leading-tight">1,400+ Custom <br/> Orders Delivered</h4>
-                <p className="text-[10px] text-brand-muted mt-1">Will Yours Be Next?</p>
+                <h4 className="text-sm font-bold text-brand-dark leading-tight">1,400+ Orders<br/>Delivered</h4>
+                <p className="text-[10px] text-brand-muted mt-0.5">Will Yours Be Next?</p>
               </div>
             </div>
           </div>
 
-          {/* Floating Glass Pill 2 (Right Top) */}
-          <div className="absolute z-30 top-[25%] right-[5%] sm:right-[15%] lg:right-[20%] animate-fade-in-right">
-            <div className="bg-brand-white/80 backdrop-blur-xl border border-brand-white shadow-xl rounded-full px-5 py-3 flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full border-2 border-brand-white overflow-hidden relative">
+          {/* Floating Glass Pill 2 — Left Bottom: Rating */}
+          <div className="absolute z-30 top-[62%] left-[2%] sm:left-[8%] lg:left-[14%] animate-fade-in-left" style={{animationDelay:'0.5s'}}>
+            <div className="bg-brand-white/85 backdrop-blur-xl border border-brand-white shadow-xl rounded-2xl p-3 flex items-center gap-3 hover:-translate-y-1 transition-transform duration-300">
+              <div className="w-10 h-10 rounded-xl bg-yellow-50 flex items-center justify-center text-yellow-500 flex-shrink-0">
+                <Star size={20} fill="currentColor" />
+              </div>
+              <div>
+                <div className="flex items-center gap-1">
+                  {[1,2,3,4,5].map(s => <Star key={s} size={8} fill="#EAB308" className="text-yellow-400"/>)}
+                </div>
+                <p className="text-[11px] font-bold text-brand-dark mt-0.5">5.0 · 2,300 Reviews</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Floating Glass Pill 3 — Left Mid: Eco */}
+          <div className="hidden lg:flex absolute z-30 top-[22%] left-[5%] lg:left-[10%] animate-fade-in-left" style={{animationDelay:'0.7s'}}>
+            <div className="bg-brand-white/85 backdrop-blur-xl border border-brand-white shadow-xl rounded-full px-4 py-2.5 items-center gap-2 hover:-translate-y-1 transition-transform duration-300 flex">
+              <Leaf size={16} className="text-green-500" />
+              <span className="text-xs font-bold text-brand-dark">100% Organic</span>
+            </div>
+          </div>
+
+          {/* Floating Glass Pill 4 — Right: Artisan */}
+          <div className="absolute z-30 top-[22%] right-[3%] sm:right-[10%] lg:right-[16%] animate-fade-in-right" style={{animationDelay:'0.3s'}}>
+            <div className="bg-brand-white/85 backdrop-blur-xl border border-brand-white shadow-2xl rounded-full px-4 py-3 flex items-center gap-3 hover:-translate-y-1 transition-transform duration-300">
+              <div className="w-9 h-9 rounded-full border-2 border-brand-blue-100 overflow-hidden relative flex-shrink-0">
                 <Image src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="Designer" fill className="object-cover" />
               </div>
               <div>
@@ -99,20 +130,72 @@ export default async function HomePage() {
             </div>
           </div>
 
-          {/* Pre-subscribe Pill (Center Bottom) */}
-          <div className="absolute z-30 bottom-10 left-1/2 -translate-x-1/2">
-            <Link href="/shop" className="bg-brand-white/90 backdrop-blur-xl border border-brand-white shadow-xl rounded-full px-6 py-3 flex items-center gap-3 hover:bg-brand-white transition-colors group">
-              <span className="text-xs font-bold text-brand-dark tracking-wide">Explore Collection</span>
-              <ArrowUpRight size={16} className="text-brand-blue-600 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+          {/* Floating Glass Pill 5 — Right Mid: Fast delivery */}
+          <div className="absolute z-30 top-[45%] right-[2%] sm:right-[8%] lg:right-[13%] animate-fade-in-right" style={{animationDelay:'0.6s'}}>
+            <div className="bg-brand-white/85 backdrop-blur-xl border border-brand-white shadow-xl rounded-2xl p-3 flex items-center gap-3 hover:-translate-y-1 transition-transform duration-300">
+              <div className="w-10 h-10 rounded-xl bg-brand-blue-50 flex items-center justify-center text-brand-blue-600 flex-shrink-0">
+                <Truck size={18} />
+              </div>
+              <div>
+                <p className="text-[11px] font-bold text-brand-dark">Express Shipping</p>
+                <p className="text-[10px] text-brand-muted">Worldwide delivery</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Floating Glass Pill 6 — Right Bottom: Custom order */}
+          <div className="hidden lg:flex absolute z-30 top-[65%] right-[4%] lg:right-[12%] animate-fade-in-right" style={{animationDelay:'0.8s'}}>
+            <div className="bg-brand-white/85 backdrop-blur-xl border border-brand-white shadow-xl rounded-full px-4 py-2.5 items-center gap-2 hover:-translate-y-1 transition-transform duration-300 flex">
+              <Palette size={16} className="text-brand-blue-600" />
+              <span className="text-xs font-bold text-brand-dark">Custom Colorways</span>
+            </div>
+          </div>
+
+          {/* Floating Icon Orb — Top Left glow */}
+          <div className="hidden lg:block absolute z-10 top-[12%] left-[22%] animate-float" style={{animationDelay:'1s'}}>
+            <div className="w-12 h-12 rounded-2xl bg-brand-blue-600/20 backdrop-blur-sm border border-brand-blue-200/50 flex items-center justify-center shadow-lg">
+              <Scissors size={20} className="text-brand-blue-600" />
+            </div>
+          </div>
+
+          {/* Floating Icon Orb — Top Right glow */}
+          <div className="hidden lg:block absolute z-10 top-[15%] right-[22%] animate-float" style={{animationDelay:'1.4s'}}>
+            <div className="w-12 h-12 rounded-2xl bg-brand-blue-400/20 backdrop-blur-sm border border-brand-blue-200/50 flex items-center justify-center shadow-lg">
+              <Heart size={20} className="text-brand-blue-500" />
+            </div>
+          </div>
+
+          {/* Floating Icon Orb — Bottom Left */}
+          <div className="hidden lg:block absolute z-10 bottom-[28%] left-[24%] animate-float" style={{animationDelay:'0.6s'}}>
+            <div className="w-10 h-10 rounded-xl bg-brand-white/60 backdrop-blur-sm border border-brand-white shadow-md flex items-center justify-center">
+              <Sparkles size={18} className="text-brand-blue-400" />
+            </div>
+          </div>
+
+          {/* Floating Icon Orb — Bottom Right */}
+          <div className="hidden lg:block absolute z-10 bottom-[30%] right-[24%] animate-float" style={{animationDelay:'1.2s'}}>
+            <div className="w-10 h-10 rounded-xl bg-brand-white/60 backdrop-blur-sm border border-brand-white shadow-md flex items-center justify-center">
+              <Package size={18} className="text-brand-blue-400" />
+            </div>
+          </div>
+
+          {/* Pre-subscribe CTA Pill — Bottom Center */}
+          <div className="absolute z-30 bottom-10 left-1/2 -translate-x-1/2 animate-fade-in-up" style={{animationDelay:'1s'}}>
+            <Link href="/shop" className="bg-brand-white/90 backdrop-blur-xl border border-brand-white shadow-2xl rounded-full px-7 py-3.5 flex items-center gap-3 hover:bg-brand-white hover:shadow-brand-blue-100 transition-all duration-300 group">
+              <div className="w-6 h-6 rounded-full bg-brand-blue-600 flex items-center justify-center">
+                <Sparkles size={12} className="text-brand-white" />
+              </div>
+              <span className="text-sm font-bold text-brand-dark tracking-wide">Explore Collection</span>
+              <ArrowUpRight size={16} className="text-brand-blue-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
           </div>
 
-          {/* Floating Background Badges */}
-          <div className="absolute z-10 bottom-[20%] right-[10%] rotate-12 opacity-50 bg-brand-white/50 backdrop-blur-sm px-6 py-2 rounded-full border border-brand-white/50">
-            <span className="text-sm font-bold text-brand-dark uppercase tracking-widest">PREMIUM YARN</span>
+          {/* Faded Floating Text Badges */}
+          <div className="absolute z-10 bottom-[22%] right-[8%] rotate-12 opacity-40 bg-brand-white/40 backdrop-blur-sm px-5 py-1.5 rounded-full border border-brand-white/40 animate-float" style={{animationDelay:'0.9s'}}>
+            <span className="text-xs font-bold text-brand-dark uppercase tracking-widest">PREMIUM YARN</span>
           </div>
-          <div className="absolute z-10 bottom-[35%] left-[8%] -rotate-12 opacity-50 bg-brand-white/50 backdrop-blur-sm px-6 py-2 rounded-full border border-brand-white/50">
-            <span className="text-sm font-bold text-brand-dark uppercase tracking-widest">HANDCRAFTED</span>
+          <div className="absolute z-10 bottom-[38%] left-[6%] -rotate-6 opacity-40 bg-brand-white/40 backdrop-blur-sm px-5 py-1.5 rounded-full border border-brand-white/40 animate-float" style={{animationDelay:'1.5s'}}>
+            <span className="text-xs font-bold text-brand-dark uppercase tracking-widest">HANDCRAFTED</span>
           </div>
         </div>
       </section>
@@ -156,12 +239,16 @@ export default async function HomePage() {
           <div className="md:col-span-8 md:row-span-2 rounded-[32px] overflow-hidden relative group">
             <div className="absolute inset-0 bg-brand-blue-50/50" />
             <Image 
-              src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80" 
-              alt="Abstract Blue Waves" 
+              src="https://images.unsplash.com/photo-1609388492577-c6e7d7e3e1e0?auto=format&fit=crop&w=1200&q=80" 
+              alt="Crochet Yarn and Hooks" 
               fill 
-              className="object-cover opacity-80 mix-blend-multiply group-hover:scale-105 transition-transform duration-700" 
+              className="object-cover opacity-70 mix-blend-multiply group-hover:scale-105 transition-transform duration-700" 
             />
             <div className="absolute inset-0 bg-gradient-to-r from-brand-white/90 via-brand-white/40 to-transparent p-10 flex flex-col justify-center w-2/3">
+              <div className="flex items-center gap-3 mb-4">
+                <Scissors size={24} className="text-brand-blue-600" />
+                <span className="text-brand-blue-600 text-xs font-bold uppercase tracking-widest">Craft Guide</span>
+              </div>
               <h2 className="font-serif text-4xl sm:text-5xl font-black text-brand-dark leading-[1.1] uppercase">
                 HOW CROCHET<br/>
                 WORKS: A STEP-<br/>
@@ -185,21 +272,25 @@ export default async function HomePage() {
           {/* Right Vertical Card */}
           <div className="md:col-span-4 md:row-span-2 rounded-[32px] bg-gradient-to-br from-brand-blue-400 to-brand-blue-800 relative overflow-hidden group border border-brand-blue-300 p-8 flex flex-col justify-between">
             <Image 
-              src="https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?auto=format&fit=crop&w=600&q=80" 
-              alt="Abstract Blue" 
+              src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80" 
+              alt="Colorful Yarn Balls" 
               fill 
               className="object-cover opacity-30 mix-blend-overlay group-hover:scale-105 transition-transform duration-700" 
             />
-            <div className="relative z-10 flex justify-between h-full">
-              <div className="w-[10%] h-full flex items-center">
-                 <p className="transform -rotate-90 text-brand-white font-bold tracking-[0.3em] whitespace-nowrap origin-left text-lg">
-                   PREMIUM YARNS
-                 </p>
+            <div className="relative z-10 flex flex-col gap-6 h-full justify-center">
+              <div className="flex items-center gap-3">
+                <Palette size={28} className="text-brand-white/80" />
+                <p className="text-brand-white font-bold tracking-[0.2em] text-sm">PREMIUM YARNS</p>
               </div>
-              <div className="w-[10%] h-full flex items-center">
-                 <p className="transform -rotate-90 text-brand-blue-200 font-bold tracking-[0.3em] whitespace-nowrap origin-left text-lg">
-                   A MARKED PIECE FOR YOUR HOME
-                 </p>
+              <div className="w-full h-[1px] bg-brand-white/20" />
+              <div className="flex items-center gap-3">
+                <Heart size={28} className="text-brand-blue-200" />
+                <p className="text-brand-blue-200 font-bold tracking-[0.15em] text-sm">MADE WITH LOVE</p>
+              </div>
+              <div className="w-full h-[1px] bg-brand-white/20" />
+              <div className="flex items-center gap-3">
+                <Sparkles size={28} className="text-brand-white/80" />
+                <p className="text-brand-white font-bold tracking-[0.2em] text-sm">FOR YOUR HOME</p>
               </div>
             </div>
           </div>
@@ -242,6 +333,63 @@ export default async function HomePage() {
             <div className="absolute bottom-[-50%] right-[20%] w-[300px] h-[300px] bg-brand-blue-600/30 blur-[80px] rounded-full pointer-events-none" />
           </div>
 
+        </div>
+      </section>
+
+      {/* 3.4. WHY SHA CLOSET — FEATURES ICON SECTION */}
+      <section className="py-20 bg-gradient-to-b from-brand-blue-50/50 to-brand-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="text-center mb-16">
+            <span className="text-brand-blue-600 font-bold text-xs uppercase tracking-widest bg-brand-white border border-brand-blue-100 px-4 py-1.5 rounded-full shadow-sm">Our Promise</span>
+            <h2 className="font-serif text-4xl font-black text-brand-dark mt-4">Why Sha closet?</h2>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            {[
+              { icon: <Leaf size={28} />, title: 'Organic', desc: '100% natural fibers, eco-sourced' },
+              { icon: <Scissors size={28} />, title: 'Handcrafted', desc: 'Each stitch placed with intention' },
+              { icon: <Palette size={28} />, title: 'Custom Colors', desc: 'Your palette, your vision' },
+              { icon: <Truck size={28} />, title: 'Fast Delivery', desc: 'Careful packing, swift dispatch' },
+              { icon: <RefreshCw size={28} />, title: 'Easy Returns', desc: 'Hassle-free return policy' },
+              { icon: <Star size={28} />, title: '5-Star Rated', desc: '10k+ happy customers' },
+            ].map((feat, idx) => (
+              <div
+                key={idx}
+                className="group flex flex-col items-center text-center p-6 rounded-[24px] bg-brand-white border border-gray-100 shadow-sm hover:shadow-xl hover:border-brand-blue-200 hover:-translate-y-2 transition-all duration-300"
+              >
+                <div className="w-14 h-14 rounded-2xl bg-brand-blue-50 group-hover:bg-brand-blue-600 text-brand-blue-600 group-hover:text-brand-white flex items-center justify-center mb-4 transition-all duration-300 shadow-sm">
+                  {feat.icon}
+                </div>
+                <h3 className="font-bold text-brand-dark text-sm mb-1">{feat.title}</h3>
+                <p className="text-[11px] text-brand-muted leading-relaxed">{feat.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Crochet lifestyle image strip */}
+          <div className="mt-16 grid grid-cols-3 gap-4 rounded-[32px] overflow-hidden">
+            <div className="relative h-48 overflow-hidden rounded-[24px] group">
+              <Image src="https://images.unsplash.com/photo-1585914924626-15adac1e6402?auto=format&fit=crop&w=600&q=80" alt="Crochet in progress" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-brand-blue-900/20 group-hover:bg-brand-blue-900/10 transition-colors" />
+              <span className="absolute bottom-3 left-3 bg-brand-white/80 backdrop-blur-sm text-brand-dark text-[10px] font-bold px-3 py-1 rounded-full flex items-center gap-1">
+                <Scissors size={10} /> In Progress
+              </span>
+            </div>
+            <div className="relative h-48 overflow-hidden rounded-[24px] group">
+              <Image src="https://images.unsplash.com/photo-1604456930969-37f67bcd6e1e?auto=format&fit=crop&w=600&q=80" alt="Yarn collection" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-brand-blue-900/20 group-hover:bg-brand-blue-900/10 transition-colors" />
+              <span className="absolute bottom-3 left-3 bg-brand-white/80 backdrop-blur-sm text-brand-dark text-[10px] font-bold px-3 py-1 rounded-full flex items-center gap-1">
+                <Palette size={10} /> Yarn Selection
+              </span>
+            </div>
+            <div className="relative h-48 overflow-hidden rounded-[24px] group">
+              <Image src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=600&q=80" alt="Finished crochet product" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-brand-blue-900/20 group-hover:bg-brand-blue-900/10 transition-colors" />
+              <span className="absolute bottom-3 left-3 bg-brand-white/80 backdrop-blur-sm text-brand-dark text-[10px] font-bold px-3 py-1 rounded-full flex items-center gap-1">
+                <Package size={10} /> Ready to Ship
+              </span>
+            </div>
+          </div>
         </div>
       </section>
 

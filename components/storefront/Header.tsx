@@ -41,11 +41,20 @@ export default function Header() {
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <Image src="/logo.png" alt="Sha closet logo" width={40} height={40} className="object-contain" />
-          <span className="font-serif text-2xl tracking-wider text-brand-dark group-hover:text-brand-blue-600 transition-colors">
-            Sha closet
+        {/* Logo - Unique Styled Brand Mark */}
+        <Link href="/" className="flex items-center group">
+          <span className="relative flex flex-col items-start select-none">
+            {/* Main brand name with mixed weight + gradient */}
+            <span className="font-serif leading-[0.9] tracking-tight">
+              <span className="font-black text-[28px] bg-gradient-to-br from-brand-blue-800 via-brand-blue-500 to-brand-blue-300 bg-clip-text text-transparent group-hover:from-brand-blue-600 group-hover:via-brand-blue-400 group-hover:to-brand-blue-200 transition-all duration-500">
+                SHA
+              </span>
+              <span className="font-light text-[18px] tracking-[0.12em] text-brand-blue-800 ml-1 group-hover:text-brand-blue-600 transition-colors duration-300 lowercase">
+                closet
+              </span>
+            </span>
+            {/* Animated shimmer underline */}
+            <span className="block h-[2px] w-full mt-[2px] rounded-full bg-gradient-to-r from-brand-blue-600 via-brand-blue-200 to-transparent group-hover:from-brand-blue-400 group-hover:via-brand-blue-600 transition-all duration-500" />
           </span>
         </Link>
 
@@ -177,10 +186,17 @@ export default function Header() {
           <div className="fixed top-0 left-0 bottom-0 w-80 bg-brand-white z-50 p-6 flex flex-col justify-between shadow-premium lg:hidden">
             <div>
               <div className="flex items-center justify-between mb-8">
-                <Link href="/" className="flex items-center gap-3">
-                  <Image src="/logo.png" alt="Sha closet logo" width={32} height={32} className="object-contain" />
-                  <span className="font-serif text-xl tracking-wider text-brand-dark">
-                    Sha closet
+                <Link href="/" className="flex items-center">
+                  <span className="relative flex flex-col items-start select-none">
+                    <span className="font-serif leading-[0.9] tracking-tight">
+                      <span className="font-black text-[22px] bg-gradient-to-br from-brand-blue-800 via-brand-blue-500 to-brand-blue-300 bg-clip-text text-transparent">
+                        SHA
+                      </span>
+                      <span className="font-light text-[14px] tracking-[0.12em] text-brand-blue-800 ml-1 lowercase">
+                        closet
+                      </span>
+                    </span>
+                    <span className="block h-[2px] w-full mt-[2px] rounded-full bg-gradient-to-r from-brand-blue-600 via-brand-blue-200 to-transparent" />
                   </span>
                 </Link>
                 <button

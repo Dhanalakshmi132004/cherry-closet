@@ -21,10 +21,17 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-24 grid grid-cols-1 md:grid-cols-4 gap-12">
         {/* Brand Block */}
         <div className="md:col-span-2">
-          <Link href="/" className="flex items-center gap-3 mb-4 group">
-            <Image src="/logo.png" alt="Sha closet logo" width={40} height={40} className="object-contain" />
-            <span className="font-serif text-2xl tracking-wider text-brand-dark group-hover:text-brand-blue-600 transition-colors">
-              Sha closet
+          <Link href="/" className="flex items-center mb-6 group">
+            <span className="relative flex flex-col items-start select-none">
+              <span className="font-serif leading-[0.9] tracking-tight">
+                <span className="font-black text-[34px] bg-gradient-to-br from-brand-blue-800 via-brand-blue-500 to-brand-blue-300 bg-clip-text text-transparent group-hover:from-brand-blue-600 group-hover:via-brand-blue-400 group-hover:to-brand-blue-200 transition-all duration-500">
+                  SHA
+                </span>
+                <span className="font-light text-[22px] tracking-[0.12em] text-brand-blue-800 ml-1 group-hover:text-brand-blue-600 transition-colors duration-300 lowercase">
+                  closet
+                </span>
+              </span>
+              <span className="block h-[2px] w-full mt-[2px] rounded-full bg-gradient-to-r from-brand-blue-600 via-brand-blue-200 to-transparent group-hover:from-brand-blue-400 group-hover:via-brand-blue-600 transition-all duration-500" />
             </span>
           </Link>
           <p className="text-brand-muted max-w-sm font-sans text-sm leading-relaxed mb-6">
