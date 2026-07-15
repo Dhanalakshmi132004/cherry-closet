@@ -6,20 +6,20 @@
 @layer base {
   :root {
     --background: #FFFFFF;
-    --foreground: #0F172A;
+    --foreground: #0B1120;
     --card: #FFFFFF;
-    --card-foreground: #0F172A;
+    --card-foreground: #0B1120;
     --popover: #FFFFFF;
-    --popover-foreground: #0F172A;
+    --popover-foreground: #0B1120;
     --primary: #2563EB;
     --primary-foreground: #FFFFFF;
-    --secondary: #475569;
+    --secondary: #1E40AF;
     --secondary-foreground: #FFFFFF;
     --muted: #F8FAFC;
     --muted-foreground: #64748B;
     --accent: #3B82F6;
     --accent-foreground: #FFFFFF;
-    --destructive: #1E3A8A;
+    --destructive: #EF4444;
     --destructive-foreground: #FFFFFF;
     --border: #E2E8F0;
     --input: #E2E8F0;
@@ -30,13 +30,13 @@
 
 @layer base {
   * {
-    @apply border-brand-sand outline-none focus-visible:ring-2 focus-visible:ring-brand-terracotta focus-visible:ring-offset-2;
+    @apply border-gray-200 outline-none focus-visible:ring-2 focus-visible:ring-brand-blue-500 focus-visible:ring-offset-2;
   }
   body {
-    @apply bg-brand-cream text-brand-charcoal min-h-screen font-sans antialiased;
+    @apply bg-brand-white text-brand-dark min-h-screen font-sans antialiased;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif font-semibold text-brand-charcoal;
+    @apply font-serif font-semibold text-brand-dark;
   }
 }
 
@@ -46,14 +46,14 @@
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #FAF6F1;
+  background: #F0F7FF;
 }
 ::-webkit-scrollbar-thumb {
-  background: #E8E1D8;
+  background: #8AC3FF;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #7A7168;
+  background: #3B82F6;
 }
 
 /* Custom World-Class Landing Animations */
@@ -160,4 +160,4 @@
 
 .animation-delay-500 {
   animation-delay: 500ms;
-}
+}
