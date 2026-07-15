@@ -12,14 +12,14 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         brand: {
-          cream: '#FAF6F1',
-          charcoal: '#2B2622',
-          terracotta: '#C1592F',
-          terracottaHover: '#A64A26',
-          sand: '#E8E1D8',
-          muted: '#7A7168',
-          success: '#4A7C59',
-          error: '#B3402D',
+          cream: '#FFFFFF',
+          charcoal: '#0F172A',
+          terracotta: '#2563EB',
+          terracottaHover: '#1D4ED8',
+          sand: '#E2E8F0',
+          muted: '#64748B',
+          success: '#3B82F6',
+          error: '#1E3A8A',
         }
       },
       fontFamily: {

@@ -1,5 +1,5 @@
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
@@ -36,7 +36,7 @@ model Product {
   id                String         @id @default(uuid())
   slug              String         @unique
   title             String
-  description       String         @db.Text
+  description       String
   materials         String?
   dimensions        String?        // physical sizing
   basePrice         Float
@@ -78,7 +78,7 @@ model Collection {
   id          String    @id @default(uuid())
   name        String
   slug        String    @unique
-  description String?   @db.Text
+  description String?
   createdAt   DateTime  @default(now())
   products    Product[]
 }
