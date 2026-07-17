@@ -17,7 +17,9 @@ import {
   Scissors,
   Package,
   RefreshCw,
-  Sparkles
+  Sparkles,
+  BookOpen,
+  Download
 } from 'lucide-react';
 
 export const revalidate = 60; // Revalidate every minute
@@ -527,6 +529,97 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* 3.8. MULTIPLE PREMIUM BOOKS SECTION */}
+      <section className="py-24 relative overflow-hidden bg-brand-dark">
+        {/* Ambient Glows */}
+        <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-brand-blue-900/40 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-purple-900/30 blur-[120px] rounded-full pointer-events-none" />
+
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div className="space-y-4 max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-white/5 border border-brand-white/10 text-brand-blue-300">
+                <BookOpen size={16} />
+                <span className="text-xs font-bold tracking-[0.2em] uppercase">Curated Library</span>
+              </div>
+              <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-brand-white font-black leading-[1.1]">
+                MINDS THAT <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue-400 to-purple-400">SHAPED THE WORLD</span>
+              </h2>
+              <p className="text-brand-blue-100/60 text-lg font-light leading-relaxed">
+                Unlock unparalleled wisdom with our exclusive collection of 15 life-changing books. 
+                From mastering wealth to understanding human psychology, elevate your mind today.
+              </p>
+            </div>
+            
+            <div className="hidden md:flex gap-3">
+              <button className="w-12 h-12 rounded-full bg-brand-white/5 border border-brand-white/10 flex items-center justify-center text-brand-white hover:bg-brand-white/20 transition-colors">
+                <ChevronRight className="rotate-180" size={20} />
+              </button>
+              <button className="w-12 h-12 rounded-full bg-brand-white/10 border border-brand-white/20 flex items-center justify-center text-brand-white hover:bg-brand-blue-600 transition-colors">
+                <ChevronRight size={20} />
+              </button>
+            </div>
+          </div>
+
+          {/* Horizontal Scroll Track */}
+          <div className="flex gap-8 overflow-x-auto pb-12 pt-16 snap-x snap-mandatory hide-scrollbar relative">
+            {[
+              { title: "Rich Dad Poor Dad", author: "Robert T. Kiyosaki", img: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=400&q=80", tag: "Finance", price: "$24" },
+              { title: "Psychology of Money", author: "Morgan Housel", img: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=400&q=80", tag: "Wealth", price: "$22" },
+              { title: "Atomic Habits", author: "James Clear", img: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=400&q=80", tag: "Growth", price: "$19" },
+              { title: "Thinking, Fast and Slow", author: "Daniel Kahneman", img: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=400&q=80", tag: "Psychology", price: "$26" },
+              { title: "The Intelligent Investor", author: "Benjamin Graham", img: "https://images.unsplash.com/photo-1592496431122-2349e0fbc666?auto=format&fit=crop&w=400&q=80", tag: "Investing", price: "$30" },
+              { title: "Sapiens", author: "Yuval Noah Harari", img: "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&q=80", tag: "History", price: "$25" },
+              { title: "Deep Work", author: "Cal Newport", img: "https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?auto=format&fit=crop&w=400&q=80", tag: "Focus", price: "$21" },
+              { title: "Zero to One", author: "Peter Thiel", img: "https://images.unsplash.com/photo-1456406644174-8ddd4cd52a06?auto=format&fit=crop&w=400&q=80", tag: "Business", price: "$23" },
+              { title: "Principles", author: "Ray Dalio", img: "https://images.unsplash.com/photo-1511116262446-c2152865ec09?auto=format&fit=crop&w=400&q=80", tag: "Leadership", price: "$28" },
+              { title: "Shoe Dog", author: "Phil Knight", img: "https://images.unsplash.com/photo-1589998059171-9899ea86200b?auto=format&fit=crop&w=400&q=80", tag: "Biography", price: "$20" },
+              { title: "Outliers", author: "Malcolm Gladwell", img: "https://images.unsplash.com/photo-1550399105-c4db5fb85c18?auto=format&fit=crop&w=400&q=80", tag: "Success", price: "$18" },
+              { title: "Good to Great", author: "Jim Collins", img: "https://images.unsplash.com/photo-1513001900722-370f803f498d?auto=format&fit=crop&w=400&q=80", tag: "Business", price: "$22" },
+              { title: "The 48 Laws of Power", author: "Robert Greene", img: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=400&q=80", tag: "Strategy", price: "$29" },
+              { title: "Start with Why", author: "Simon Sinek", img: "https://images.unsplash.com/photo-1588666309990-d68f08e3d4a6?auto=format&fit=crop&w=400&q=80", tag: "Leadership", price: "$19" },
+              { title: "The Lean Startup", author: "Eric Ries", img: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=400&q=80", tag: "Startup", price: "$24" }
+            ].map((book, idx) => (
+              <div 
+                key={idx} 
+                className="group relative min-w-[280px] max-w-[280px] snap-center rounded-[32px] bg-brand-white/5 backdrop-blur-xl border border-brand-white/10 p-6 flex flex-col hover:-translate-y-4 hover:bg-brand-white/10 hover:border-brand-blue-400/50 transition-all duration-500 ease-out shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_50px_-10px_rgba(37,99,235,0.4)] mt-12"
+              >
+                {/* Floating Image */}
+                <div className="relative w-full aspect-[3/4] -mt-20 mb-6 rounded-[16px] overflow-hidden shadow-2xl group-hover:-translate-y-2 group-hover:scale-[1.02] transition-transform duration-500 border border-brand-white/20">
+                  <Image
+                    src={book.img}
+                    alt={book.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  {/* Tag Pill Overlay */}
+                  <div className="absolute top-4 left-4 bg-brand-dark/80 backdrop-blur-md text-brand-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest border border-brand-white/10">
+                    {book.tag}
+                  </div>
+                </div>
+
+                {/* Details */}
+                <div className="flex-1 flex flex-col justify-end">
+                  <h3 className="font-serif text-2xl text-brand-white font-bold leading-tight mb-2 group-hover:text-brand-blue-300 transition-colors line-clamp-2">
+                    {book.title}
+                  </h3>
+                  <p className="text-brand-white/50 text-sm mb-6 font-medium">{book.author}</p>
+                  
+                  <div className="flex items-center justify-between pt-4 border-t border-brand-white/10 mt-auto">
+                    <span className="text-xl font-black text-brand-white">{book.price}</span>
+                    <button className="w-10 h-10 rounded-full bg-brand-white text-brand-dark flex items-center justify-center hover:bg-brand-blue-600 hover:text-brand-white transition-colors hover:scale-110 active:scale-95 duration-300 shadow-lg">
+                      <Download size={18} />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 4. FINAL CTA SECTION (Mimicking the bottom shape) */}
       <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 text-center">
         <span className="bg-brand-white border border-gray-200 text-brand-dark px-6 py-2 rounded-full text-xs font-bold tracking-widest uppercase shadow-sm mb-8 inline-block">
@@ -560,6 +653,13 @@ export default async function HomePage() {
         }
         .animate-marquee {
           animation: marquee 20s linear infinite;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .hide-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
         }
       `}} />
     </div>
