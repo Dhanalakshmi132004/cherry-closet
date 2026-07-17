@@ -19,7 +19,9 @@ import {
   RefreshCw,
   Sparkles,
   BookOpen,
-  Download
+  Download,
+  Sun,
+  Droplet
 } from 'lucide-react';
 
 export const revalidate = 60; // Revalidate every minute
@@ -44,6 +46,15 @@ export default async function HomePage() {
       <section className="relative pt-6 pb-20 w-full">
         {/* Background Gradient & Huge Text */}
         <div className="relative overflow-hidden bg-gradient-to-b from-brand-blue-100 via-brand-blue-50 to-brand-white w-full min-h-[700px] flex flex-col items-center justify-center border-b border-brand-blue-100" style={{ borderBottomLeftRadius: '50% 10%', borderBottomRightRadius: '50% 10%' }}>
+          {/* New Ambient Hero Elements */}
+          <div className="absolute top-20 left-[15%] w-[40vw] h-[40vw] bg-brand-blue-200/40 rounded-[40%_60%_70%_30%] blur-[80px] animate-[spin_20s_linear_infinite] pointer-events-none z-0" />
+          <div className="absolute bottom-10 right-[10%] w-[35vw] h-[35vw] bg-purple-200/30 rounded-[60%_40%_30%_70%] blur-[80px] animate-[spin_25s_linear_infinite_reverse] pointer-events-none z-0" />
+          <div className="absolute top-[30%] left-[25%] text-brand-blue-400/50 animate-float pointer-events-none z-10" style={{ animationDelay: '0.4s' }}>
+             <Star size={32} strokeWidth={1.5} />
+          </div>
+          <div className="absolute bottom-[40%] right-[25%] text-brand-blue-300/60 animate-float-delayed pointer-events-none z-10" style={{ animationDelay: '1.2s' }}>
+             <Sparkles size={48} strokeWidth={1} />
+          </div>
 
           {/* Huge Faded Background Text */}
           <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none z-0">
@@ -228,17 +239,25 @@ export default async function HomePage() {
       </section>
 
       {/* 3. BENTO GRID SECTION */}
-      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="mb-12 flex justify-between items-center">
-          <span className="bg-brand-blue-50 border border-brand-blue-100 text-brand-blue-600 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase">
+      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative">
+        {/* Floating background shapes */}
+        <div className="absolute top-[20%] left-[-5%] w-64 h-64 bg-brand-blue-200/30 rounded-full blur-[60px] animate-pulse pointer-events-none" />
+        <div className="absolute bottom-[10%] right-[-5%] w-80 h-80 bg-purple-200/20 rounded-full blur-[80px] pointer-events-none animate-float-delayed" />
+        
+        <div className="mb-12 flex justify-between items-center relative z-10">
+          <span className="bg-brand-blue-50 border border-brand-blue-100 text-brand-blue-600 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase shadow-sm">
             UI / UX INNOVATION
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[250px]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[250px] relative z-10">
 
           {/* Large Left Card - Step by Step */}
           <div className="md:col-span-8 md:row-span-2 rounded-[32px] overflow-hidden relative group">
+            {/* Inner card floating elements */}
+            <div className="absolute top-10 right-10 text-brand-white/40 animate-float pointer-events-none z-20">
+              <Scissors size={48} strokeWidth={1} className="rotate-45" />
+            </div>
             <div className="absolute inset-0 bg-brand-blue-50/50" />
             <Image
               src="https://images.unsplash.com/photo-1609388492577-c6e7d7e3e1e0?auto=format&fit=crop&w=1200&q=80"
@@ -273,6 +292,10 @@ export default async function HomePage() {
 
           {/* Right Vertical Card */}
           <div className="md:col-span-4 md:row-span-2 rounded-[32px] bg-gradient-to-br from-brand-blue-400 to-brand-blue-800 relative overflow-hidden group border border-brand-blue-300 p-8 flex flex-col justify-between">
+            <div className="absolute -top-10 -right-10 w-32 h-32 bg-brand-white/10 rounded-full blur-2xl animate-pulse pointer-events-none z-10" />
+            <div className="absolute bottom-1/3 left-10 text-brand-white/30 animate-float-delayed pointer-events-none z-20" style={{ animationDelay: '0.6s' }}>
+               <Heart size={40} strokeWidth={1.5} className="-rotate-12" />
+            </div>
             <Image
               src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80"
               alt="Colorful Yarn Balls"
@@ -339,8 +362,19 @@ export default async function HomePage() {
       </section>
 
       {/* 3.4. WHY SHA CLOSET — FEATURES ICON SECTION */}
-      <section className="py-20 bg-gradient-to-b from-brand-blue-50/50 to-brand-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+      <section className="py-20 bg-gradient-to-b from-brand-blue-50/50 to-brand-white relative overflow-hidden">
+        {/* Floating geometric icons */}
+        <div className="absolute top-[20%] left-[8%] text-brand-blue-300/40 animate-float pointer-events-none" style={{ animationDelay: '0.3s' }}>
+          <ShieldCheck size={64} strokeWidth={1} className="-rotate-12" />
+        </div>
+        <div className="absolute top-[60%] right-[5%] text-brand-blue-200/50 animate-float-delayed pointer-events-none" style={{ animationDelay: '1.4s' }}>
+          <Star size={48} strokeWidth={1.5} className="rotate-45" />
+        </div>
+        <div className="absolute bottom-[10%] left-[40%] text-brand-blue-400/30 animate-pulse pointer-events-none blur-[1px]">
+          <Package size={56} strokeWidth={1} className="rotate-12" />
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
           <div className="text-center mb-16">
             <span className="text-brand-blue-600 font-bold text-xs uppercase tracking-widest bg-brand-white border border-brand-blue-100 px-4 py-1.5 rounded-full shadow-sm">Our Promise</span>
             <h2 className="font-serif text-4xl font-black text-brand-dark mt-4">Why the SHA Closet?</h2>
@@ -396,8 +430,12 @@ export default async function HomePage() {
       </section>
 
       {/* 3.5. TRENDING HANDMADES (Products Grid) */}
-      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 gap-4">
+      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative">
+        {/* Floating aesthetics for Trending section */}
+        <div className="absolute top-0 right-[10%] w-32 h-32 bg-brand-blue-500/10 rounded-full blur-3xl animate-pulse pointer-events-none" />
+        <div className="absolute bottom-[20%] left-0 w-48 h-48 bg-brand-blue-200/20 rounded-[50%_50%_40%_60%] blur-2xl animate-[spin_20s_linear_infinite] pointer-events-none" />
+
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 gap-4 relative z-10">
           <div className="space-y-3 animate-fade-in-left">
             <span className="text-brand-blue-600 font-bold text-xs uppercase tracking-widest bg-brand-blue-50 border border-brand-blue-100 px-3 py-1 rounded-full">Trending Creations</span>
             <h2 className="font-serif text-3xl sm:text-4xl text-brand-dark font-bold">Popular Handmades</h2>
@@ -457,8 +495,16 @@ export default async function HomePage() {
 
       {/* 3.6. BABY CLOTHING SECTION */}
       <section className="py-24 bg-brand-blue-50/50 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-blue-100 rounded-full blur-[100px] opacity-50 pointer-events-none" />
-        <div className="absolute bottom-0 left-[-10%] w-[400px] h-[400px] bg-brand-white rounded-full blur-[80px] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-blue-100 rounded-full blur-[100px] opacity-50 pointer-events-none animate-pulse" />
+        <div className="absolute bottom-0 left-[-10%] w-[400px] h-[400px] bg-brand-white rounded-[40%_60%_70%_30%] blur-[80px] pointer-events-none animate-[spin_15s_linear_infinite]" />
+        
+        {/* Floating Clouds/Hearts */}
+        <div className="absolute top-[30%] left-[10%] text-brand-blue-300/40 animate-float pointer-events-none">
+          <Heart size={48} strokeWidth={1} />
+        </div>
+        <div className="absolute bottom-[20%] right-[15%] text-purple-300/30 animate-float-delayed pointer-events-none" style={{ animationDelay: '0.8s' }}>
+          <Sparkles size={64} strokeWidth={1} className="-rotate-12" />
+        </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
           <div className="text-center mb-16 space-y-4">
@@ -487,8 +533,12 @@ export default async function HomePage() {
       </section>
 
       {/* 3.7. HANDCRAFTED FLOWER CROCHET SECTION */}
-      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="bg-brand-dark rounded-[48px] overflow-hidden flex flex-col lg:flex-row relative shadow-2xl group">
+      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative">
+        {/* Ambient floating blobs behind the whole container */}
+        <div className="absolute top-1/2 left-0 w-72 h-72 bg-brand-blue-900/30 rounded-full blur-[100px] animate-pulse pointer-events-none z-0" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-900/20 rounded-[40%_60%_70%_30%] blur-[100px] animate-[spin_25s_linear_infinite] pointer-events-none z-0" />
+
+        <div className="bg-brand-dark rounded-[48px] overflow-hidden flex flex-col lg:flex-row relative shadow-2xl group z-10">
           {/* Left: Huge sticky image */}
           <div className="lg:w-1/2 relative min-h-[400px] lg:min-h-full">
             <Image
@@ -620,9 +670,177 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* 3.9. BOTANICAL COLLECTION SECTION */}
+      <section className="py-24 relative overflow-hidden bg-brand-white">
+        {/* Soft Organic Background Elements */}
+        <div className="absolute top-0 right-0 w-full h-[500px] bg-gradient-to-b from-brand-white to-green-50/50 -z-10" />
+        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-green-200/20 blur-[100px] rounded-full mix-blend-multiply pointer-events-none" />
+        <div className="absolute top-40 -left-20 w-[400px] h-[400px] bg-emerald-100/30 blur-[80px] rounded-full mix-blend-multiply pointer-events-none" />
+
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+          
+          {/* Floating Aesthetic Greenery Elements */}
+          <div className="absolute -z-10 top-10 left-[10%] animate-float text-green-400/40 -rotate-12 pointer-events-none" style={{ animationDelay: '0.2s' }}>
+            <Leaf size={48} strokeWidth={1} />
+          </div>
+          <div className="absolute -z-10 top-40 right-[5%] animate-float-delayed text-emerald-500/30 rotate-45 blur-[2px] pointer-events-none" style={{ animationDelay: '0.7s' }}>
+            <Leaf size={64} strokeWidth={1.5} />
+          </div>
+          <div className="absolute -z-10 bottom-20 left-[2%] animate-float text-green-300/50 rotate-90 pointer-events-none" style={{ animationDelay: '1.2s' }}>
+            <Leaf size={32} strokeWidth={1} />
+          </div>
+          <div className="hidden lg:block absolute -z-10 top-1/3 left-1/2 -translate-x-1/2 animate-pulse text-green-200/20 rotate-180 blur-[8px] pointer-events-none">
+            <Leaf size={180} strokeWidth={0.5} />
+          </div>
+          <div className="absolute -z-10 bottom-10 right-[15%] animate-float-delayed text-green-500/30 -rotate-45 pointer-events-none" style={{ animationDelay: '0.5s' }}>
+            <Sparkles size={40} strokeWidth={1} />
+          </div>
+          <div className="absolute -z-10 top-20 right-[30%] animate-float text-emerald-400/20 rotate-12 pointer-events-none" style={{ animationDelay: '1.5s' }}>
+            <Leaf size={24} strokeWidth={1.5} />
+          </div>
+          <div className="absolute -z-10 top-[60%] right-[40%] animate-float text-blue-400/30 pointer-events-none" style={{ animationDelay: '0.9s' }}>
+            <Droplet size={36} strokeWidth={1.5} />
+          </div>
+          <div className="absolute -z-10 bottom-[30%] left-[20%] animate-pulse text-yellow-500/20 pointer-events-none" style={{ animationDelay: '0.3s' }}>
+            <Sun size={80} strokeWidth={0.5} />
+          </div>
+          {/* Floating Organic Shapes */}
+          <div className="absolute -z-10 top-[10%] right-[20%] w-20 h-20 bg-green-200/30 rounded-[40%_60%_70%_30%] blur-[4px] animate-[spin_10s_linear_infinite] pointer-events-none" />
+          <div className="absolute -z-10 bottom-[10%] left-[30%] w-32 h-32 bg-emerald-200/20 rounded-[60%_40%_30%_70%] blur-[8px] animate-[spin_15s_linear_infinite_reverse] pointer-events-none" />
+
+          {/* Header */}
+          <div className="mb-16 flex flex-col items-center text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 border border-green-200 text-green-700 mb-6 shadow-sm">
+              <Leaf size={16} />
+              <span className="text-xs font-bold tracking-[0.2em] uppercase">Living Collection</span>
+            </div>
+            <h2 className="font-serif text-5xl sm:text-6xl lg:text-7xl text-brand-dark font-black leading-[1.1] tracking-tight">
+              BREATHE LIFE <br />
+              <span className="italic font-light text-green-700">into your space</span>
+            </h2>
+          </div>
+
+          {/* Bento Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-auto lg:h-[700px]">
+            
+            {/* Potted Plants - Hero (Span 7) */}
+            <div className="lg:col-span-7 relative group rounded-[40px] overflow-hidden bg-green-50 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.2)] transition-all duration-700 border border-green-100/50">
+              <Image 
+                src="/potted_plant_premium.png" 
+                alt="Lush Potted Plant" 
+                fill 
+                className="object-cover transition-transform duration-[1.5s] group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-80" />
+              
+              {/* Card-specific floating icons */}
+              <div className="absolute top-10 left-10 animate-float text-white/50 pointer-events-none" style={{ animationDelay: '0.1s' }}>
+                <Sun size={32} strokeWidth={1} />
+              </div>
+              <div className="absolute bottom-40 right-12 animate-float-delayed text-green-300/60 pointer-events-none" style={{ animationDelay: '0.8s' }}>
+                <Leaf size={28} strokeWidth={1.5} className="-rotate-45" />
+              </div>
+              
+              <div className="absolute inset-0 p-8 sm:p-12 flex flex-col justify-between">
+                <div className="self-end bg-white/20 backdrop-blur-md border border-white/30 text-white text-[10px] font-bold px-4 py-2 rounded-full uppercase tracking-widest shadow-lg">
+                  Bestseller
+                </div>
+                
+                <div className="max-w-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <h3 className="font-serif text-4xl sm:text-5xl text-white font-bold mb-4 leading-tight">
+                    Premium <br /> Potted Plants
+                  </h3>
+                  <p className="text-white/80 text-sm mb-8 font-medium">
+                    Hand-selected, thriving greenery delivered straight to your door in our artisan soil mix.
+                  </p>
+                  
+                  <button className="bg-white text-green-900 px-8 py-4 rounded-full font-bold text-sm hover:bg-green-50 transition-colors flex items-center gap-3 group/btn shadow-[0_10px_30px_-10px_rgba(255,255,255,0.5)]">
+                    Explore Plants 
+                    <ArrowUpRight size={18} className="group-hover/btn:rotate-45 transition-transform" />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column Stack (Span 5) */}
+            <div className="lg:col-span-5 flex flex-col gap-6">
+              
+              {/* Artisan Pots */}
+              <div className="flex-1 relative group rounded-[40px] overflow-hidden bg-stone-100 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.2)] transition-all duration-700 border border-stone-200">
+                <Image 
+                  src="/artisan_ceramic_pots.png" 
+                  alt="Ceramic Pots" 
+                  fill 
+                  className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-stone-900/70 to-transparent" />
+                
+                {/* Card-specific floating shapes */}
+                <div className="absolute top-8 left-8 w-12 h-12 bg-white/10 rounded-full animate-pulse pointer-events-none blur-[1px]" />
+                <div className="absolute bottom-20 right-8 text-stone-300/40 animate-float pointer-events-none" style={{ animationDelay: '1.1s' }}>
+                  <Droplet size={24} strokeWidth={1.5} />
+                </div>
+                
+                <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                  <h3 className="font-serif text-3xl text-white font-bold mb-2">Artisan Pots</h3>
+                  <div className="flex items-center justify-between">
+                    <p className="text-stone-200 text-sm font-medium">Handcrafted ceramics</p>
+                    <button className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-stone-900 transition-colors">
+                      <ChevronRight size={20} />
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Heirloom Seeds */}
+              <div className="h-[250px] lg:h-[300px] relative group rounded-[40px] overflow-hidden bg-amber-50 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.2)] transition-all duration-700 border border-amber-100/50">
+                <Image 
+                  src="/heirloom_seeds.png" 
+                  alt="Heirloom Seeds" 
+                  fill 
+                  className="object-cover opacity-80 mix-blend-multiply transition-transform duration-1000 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-amber-900/70 to-transparent" />
+                
+                {/* Card-specific floating icons */}
+                <div className="absolute top-12 left-1/2 animate-float text-amber-200/50 pointer-events-none" style={{ animationDelay: '0.4s' }}>
+                  <Leaf size={20} strokeWidth={2} className="rotate-45" />
+                </div>
+                <div className="absolute bottom-12 left-[10%] w-8 h-8 bg-amber-500/20 rounded-[40%_60%_70%_30%] animate-[spin_8s_linear_infinite] pointer-events-none blur-[2px]" />
+                
+                <div className="absolute inset-0 p-8 flex flex-col justify-center w-2/3">
+                  <h3 className="font-serif text-3xl text-white font-bold mb-3">Heirloom <br/> Seeds</h3>
+                  <p className="text-amber-100 text-sm mb-6 font-medium">Grow your own organic oasis from scratch.</p>
+                  <Link href="/shop/seeds" className="text-white font-bold text-sm flex items-center gap-2 hover:gap-4 transition-all uppercase tracking-widest">
+                    Shop Seeds <ArrowUpRight size={16} />
+                  </Link>
+                </div>
+
+                {/* Decorative rotating badge */}
+                <div className="absolute top-6 right-6 w-24 h-24 animate-[spin_10s_linear_infinite] flex items-center justify-center opacity-80 pointer-events-none">
+                   <svg viewBox="0 0 100 100" className="w-full h-full fill-white">
+                      <path id="circlePath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" fill="transparent" />
+                      <text className="text-[12px] font-bold uppercase tracking-[0.2em]"><textPath href="#circlePath">100% Organic • 100% Organic • </textPath></text>
+                   </svg>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 4. FINAL CTA SECTION (Mimicking the bottom shape) */}
-      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 text-center">
-        <span className="bg-brand-white border border-gray-200 text-brand-dark px-6 py-2 rounded-full text-xs font-bold tracking-widest uppercase shadow-sm mb-8 inline-block">
+      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 text-center relative overflow-hidden">
+        {/* Playful Floating CTA elements */}
+        <div className="absolute top-[10%] left-[20%] text-brand-blue-400/40 animate-float pointer-events-none">
+          <ArrowUpRight size={56} strokeWidth={2} className="-rotate-12" />
+        </div>
+        <div className="absolute bottom-[20%] right-[25%] text-brand-blue-600/30 animate-pulse pointer-events-none blur-[1px]">
+          <Award size={64} strokeWidth={1} className="rotate-12" />
+        </div>
+
+        <span className="bg-brand-white border border-gray-200 text-brand-dark px-6 py-2 rounded-full text-xs font-bold tracking-widest uppercase shadow-sm mb-8 inline-block relative z-10">
           ABOUT US
         </span>
         <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-brand-dark font-black leading-tight uppercase max-w-4xl mx-auto">
