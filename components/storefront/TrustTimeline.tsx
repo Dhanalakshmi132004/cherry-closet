@@ -3,8 +3,8 @@ import React from 'react';
 const notes = [
   {
     id: '01',
-    title: 'Testimonials',
-    description: 'The only way to attract new clients, is to show your experience with the previous ones. Include: real photo, position at company, links their profiles',
+    title: 'Sarah J.',
+    description: '"I absolutely love the crochet halter top I bought! The yarn is so soft and it fits perfectly. I wore it to a festival and got so many compliments. Beautiful work!"',
     color: 'bg-orange-50',
     pinColor: 'bg-orange-500',
     pinShadow: 'shadow-orange-500/50',
@@ -13,8 +13,8 @@ const notes = [
   },
   {
     id: '02',
-    title: 'Trust Badges',
-    description: 'Show all the achievements you have. Awards, certificates, payment protections, etc.',
+    title: 'Emily R.',
+    description: '"The craftsmanship is out of this world. You can tell every piece is made with love and care. I\'ve washed my cardigan twice and it still looks brand new. Highly recommend!"',
     color: 'bg-blue-50',
     pinColor: 'bg-blue-600',
     pinShadow: 'shadow-blue-600/50',
@@ -23,8 +23,8 @@ const notes = [
   },
   {
     id: '03',
-    title: 'Add Contacts',
-    description: 'People need to understand that if something will happen, they can always reach out to you. Leave links to your social media, your email and the phone',
+    title: 'Jessica M.',
+    description: '"I was looking for something unique and sustainable, and I found it here. The designs are gorgeous and the packaging was completely plastic-free. 10/10 experience."',
     color: 'bg-purple-50',
     pinColor: 'bg-purple-600',
     pinShadow: 'shadow-purple-600/50',
@@ -33,8 +33,8 @@ const notes = [
   },
   {
     id: '04',
-    title: 'Case Studies',
-    description: 'Share detailed examples of how your product or service solved real problems. This helps visitors imagine their own success.',
+    title: 'Chloe T.',
+    description: '"I needed a last-minute gift and the team was so accommodating! The shipping was super fast and the crochet bag is even more beautiful in person. Thank you!"',
     color: 'bg-orange-50', // Peach color similar to the image
     pinColor: 'bg-orange-600',
     pinShadow: 'shadow-orange-600/50',
@@ -55,7 +55,7 @@ export default function TrustTimeline() {
       <div className="max-w-5xl mx-auto px-6 relative z-10">
         <div className="text-center mb-24">
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-700 tracking-tight">
-            How to Build Trust on<br/>Your Website
+            Love From Our<br/>Community
           </h2>
         </div>
 
