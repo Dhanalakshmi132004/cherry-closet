@@ -25,6 +25,24 @@
     --input: #E2E8F0;
     --ring: #2563EB;
     --radius: 12px;
+
+    /* Brand variables (RGB for Tailwind alpha support) */
+    --brand-white: 255 255 255;
+    --brand-dark: 11 17 32;
+    --brand-muted: 100 116 139;
+    --brand-error: 239 68 68;
+    --brand-success: 16 185 129;
+    --brand-blue-50: 240 247 255;
+    --brand-blue-100: 224 239 255;
+    --brand-blue-200: 184 219 255;
+    --brand-blue-300: 138 195 255;
+    --brand-blue-400: 87 163 255;
+    --brand-blue-500: 59 130 246;
+    --brand-blue-600: 37 99 235;
+    --brand-blue-700: 29 78 216;
+    --brand-blue-800: 30 64 175;
+    --brand-blue-900: 30 58 138;
+    --brand-blue-950: 23 37 84;
   }
 }
 
@@ -49,6 +67,24 @@
   --border: #30363d;
   --input: #30363d;
   --ring: #58a6ff;
+
+  /* Brand variables */
+  --brand-white: 13 17 23;
+  --brand-dark: 230 237 243;
+  --brand-muted: 139 148 158;
+  --brand-error: 248 81 73;
+  --brand-success: 46 160 67;
+  --brand-blue-50: 23 37 84;
+  --brand-blue-100: 30 58 138;
+  --brand-blue-200: 30 64 175;
+  --brand-blue-300: 29 78 216;
+  --brand-blue-400: 37 99 235;
+  --brand-blue-500: 59 130 246;
+  --brand-blue-600: 87 163 255;
+  --brand-blue-700: 138 195 255;
+  --brand-blue-800: 184 219 255;
+  --brand-blue-900: 224 239 255;
+  --brand-blue-950: 240 247 255;
 }
 
 /* ── Global theme transition ───────────────────────── */

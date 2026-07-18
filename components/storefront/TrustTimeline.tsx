@@ -45,7 +45,7 @@ const notes = [
 
 export default function TrustTimeline() {
   return (
-    <section className="relative py-24 w-full bg-[#fcfcfc] overflow-hidden">
+    <section className="relative py-24 w-full bg-brand-white overflow-hidden transition-colors duration-200">
       {/* Notebook Background Lines */}
       <div 
         className="absolute inset-0 z-0 opacity-20 pointer-events-none" 
@@ -54,7 +54,7 @@ export default function TrustTimeline() {
       
       <div className="max-w-5xl mx-auto px-6 relative z-10">
         <div className="text-center mb-24">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-700 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-brand-dark tracking-tight transition-colors duration-200">
             Love From Our<br/>Community
           </h2>
         </div>
@@ -63,7 +63,7 @@ export default function TrustTimeline() {
           
           {/* Dashed SVG path weaving through the items */}
           <div className="hidden lg:block absolute inset-0 pointer-events-none z-0">
-             <svg width="100%" height="100%" preserveAspectRatio="none" className="opacity-20 text-gray-500">
+             <svg width="100%" height="100%" preserveAspectRatio="none" className="opacity-20 text-brand-muted">
                <path 
                   d="M 150 100 C 300 200, 500 150, 600 300 C 550 450, 200 400, 250 550 C 300 700, 600 650, 550 800" 
                   stroke="currentColor" 
@@ -79,23 +79,23 @@ export default function TrustTimeline() {
               key={note.id} 
               className={`relative z-10 w-full md:w-[400px] ${note.align} transition-transform duration-500 hover:scale-105 hover:z-20`}
             >
-              <div className={`bg-white rounded-2xl shadow-xl border border-gray-100 p-2 ${note.rotation}`}>
+              <div className={`bg-brand-white rounded-2xl shadow-xl border border-brand-blue-100 p-2 ${note.rotation} transition-colors duration-200`}>
                 <div className={`${note.color} rounded-xl p-8 pt-10 h-full relative`}>
                   
                   {/* Push Pin */}
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex flex-col items-center">
                     <div className={`w-5 h-5 rounded-full ${note.pinColor} shadow-lg ${note.pinShadow} relative z-10 border border-white/20`} 
                          style={{ boxShadow: 'inset -2px -2px 4px rgba(0,0,0,0.3), 2px 4px 8px rgba(0,0,0,0.4)' }}/>
-                    <div className="w-1.5 h-3 bg-gray-400 opacity-80 -mt-1 rounded-b-sm shadow-sm z-0"/>
+                    <div className="w-1.5 h-3 bg-brand-muted opacity-80 -mt-1 rounded-b-sm shadow-sm z-0"/>
                   </div>
 
                   <span className={`text-xl font-handwriting ${note.pinColor.replace('bg-', 'text-')} mb-2 block font-medium italic opacity-80`}>
                     {note.id}
                   </span>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-3 tracking-tight">
+                  <h3 className="text-2xl font-bold text-brand-dark mb-3 tracking-tight transition-colors duration-200">
                     {note.title}
                   </h3>
-                  <p className="text-sm text-gray-600 leading-relaxed font-medium">
+                  <p className="text-sm text-brand-dark/80 leading-relaxed font-medium transition-colors duration-200">
                     {note.description}
                   </p>
                 </div>
