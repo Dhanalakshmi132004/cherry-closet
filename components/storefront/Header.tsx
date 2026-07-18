@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useSession, signOut } from 'next-auth/react';
-import { ShoppingBag, User, Menu, X, ChevronDown, LayoutDashboard, LogOut, ShoppingCart } from 'lucide-react';
+import { ShoppingBag, User, Menu, X, ChevronDown, LayoutDashboard, LogOut, ShoppingCart, Sun, Moon } from 'lucide-react';
+import { useTheme } from 'next-themes';
 import { useCart } from '@/lib/store/useCart';
 import { cn } from '@/lib/utils';
 import FlowerLogo from './FlowerLogo';
@@ -15,6 +15,14 @@ export default function Header() {
   const { data: session } = useSession();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
+
+  // Avoid hydration mismatch — only render icon after mount
+  useEffect(() => setMounted(true), []);
+
+  const isDark = theme === 'dark';
+  const toggleTheme = () => setTheme(isDark ? 'light' : 'dark');
 
   const cartCount = useCart((state) => state.getCartCount());
 
@@ -30,7 +38,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-brand-white/80 backdrop-blur-md border-b border-gray-200">
+    <header className="sticky top-0 z-40 w-full bg-white/80 dark:bg-gray-950/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
 
         {/* Mobile Menu Toggle */}
@@ -85,17 +93,50 @@ export default function Header() {
         </nav>
 
         {/* Actions */}
-        <div className="flex items-center gap-4 relative">
+        <div className="flex items-center gap-3 relative">
+
+          {/* Theme Toggle */}
+          {mounted && (
+            <button
+              id="theme-toggle"
+              onClick={toggleTheme}
+              aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+              className={cn(
+                "relative p-2 rounded-full transition-all duration-300",
+                "text-gray-600 dark:text-gray-300",
+                "hover:bg-brand-blue-50 dark:hover:bg-brand-blue-950",
+                "hover:text-brand-blue-600 dark:hover:text-brand-blue-400",
+                "border border-transparent hover:border-brand-blue-200 dark:hover:border-brand-blue-800"
+              )}
+            >
+              <span className="relative block w-5 h-5">
+                <Sun
+                  size={20}
+                  className={cn(
+                    "absolute inset-0 transition-all duration-300",
+                    isDark ? "opacity-0 rotate-90 scale-50" : "opacity-100 rotate-0 scale-100"
+                  )}
+                />
+                <Moon
+                  size={20}
+                  className={cn(
+                    "absolute inset-0 transition-all duration-300",
+                    isDark ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-90 scale-50"
+                  )}
+                />
+              </span>
+            </button>
+          )}
 
           {/* Cart Icon */}
           <Link
             href="/cart"
-            className="p-2 text-brand-dark hover:text-brand-blue-600 transition-colors relative flex items-center"
+            className="p-2 text-gray-700 dark:text-gray-300 hover:text-brand-blue-600 dark:hover:text-brand-blue-400 transition-colors relative flex items-center"
             aria-label="Cart"
           >
             <ShoppingBag size={22} />
             {cartCount > 0 && (
-              <span className="absolute -top-1 -right-1 bg-brand-blue-600 text-brand-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-sans font-semibold animate-pulse">
+              <span className="absolute -top-1 -right-1 bg-brand-blue-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-sans font-semibold animate-pulse">
                 {cartCount}
               </span>
             )}
@@ -106,7 +147,7 @@ export default function Header() {
             <div className="relative">
               <button
                 onClick={() => setProfileDropdownOpen(!profileDropdownOpen)}
-                className="flex items-center gap-1 p-2 text-brand-dark hover:text-brand-blue-600 transition-colors focus:outline-none"
+                className="flex items-center gap-1 p-2 text-gray-700 dark:text-gray-300 hover:text-brand-blue-600 dark:hover:text-brand-blue-400 transition-colors focus:outline-none"
               >
                 <User size={22} />
                 <ChevronDown size={14} />
@@ -119,17 +160,17 @@ export default function Header() {
                     className="fixed inset-0 z-30"
                     onClick={() => setProfileDropdownOpen(false)}
                   />
-                  <div className="absolute right-0 mt-2 w-56 rounded-xl bg-white shadow-premium border border-gray-200 py-2 z-40 transform origin-top-right transition-all">
-                    <div className="px-4 py-2 border-b border-gray-200">
-                      <p className="text-xs text-brand-muted">Signed in as</p>
-                      <p className="text-sm font-semibold text-brand-dark truncate">{session.user?.name || session.user?.email}</p>
+                  <div className="absolute right-0 mt-2 w-56 rounded-xl bg-white dark:bg-gray-900 shadow-premium border border-gray-200 dark:border-gray-700 py-2 z-40 transform origin-top-right transition-all">
+                    <div className="px-4 py-2 border-b border-gray-200 dark:border-gray-700">
+                      <p className="text-xs text-brand-muted dark:text-gray-400">Signed in as</p>
+                      <p className="text-sm font-semibold text-brand-dark dark:text-gray-100 truncate">{session.user?.name || session.user?.email}</p>
                     </div>
 
                     {isAdmin && (
                       <Link
                         href="/admin"
                         onClick={() => setProfileDropdownOpen(false)}
-                        className="flex items-center gap-2 px-4 py-3 text-sm text-brand-dark hover:bg-brand-blue-50 hover:text-brand-blue-600 transition-colors"
+                        className="flex items-center gap-2 px-4 py-3 text-sm text-brand-dark dark:text-gray-200 hover:bg-brand-blue-50 dark:hover:bg-brand-blue-950 hover:text-brand-blue-600 transition-colors"
                       >
                         <LayoutDashboard size={16} />
                         Admin Dashboard
@@ -139,7 +180,7 @@ export default function Header() {
                     <Link
                       href="/account"
                       onClick={() => setProfileDropdownOpen(false)}
-                      className="flex items-center gap-2 px-4 py-3 text-sm text-brand-dark hover:bg-brand-blue-50 hover:text-brand-blue-600 transition-colors"
+                      className="flex items-center gap-2 px-4 py-3 text-sm text-brand-dark dark:text-gray-200 hover:bg-brand-blue-50 dark:hover:bg-brand-blue-950 hover:text-brand-blue-600 transition-colors"
                     >
                       <User size={16} />
                       My Account
@@ -148,7 +189,7 @@ export default function Header() {
                     <Link
                       href="/account/orders"
                       onClick={() => setProfileDropdownOpen(false)}
-                      className="flex items-center gap-2 px-4 py-3 text-sm text-brand-dark hover:bg-brand-blue-50 hover:text-brand-blue-600 transition-colors"
+                      className="flex items-center gap-2 px-4 py-3 text-sm text-brand-dark dark:text-gray-200 hover:bg-brand-blue-50 dark:hover:bg-brand-blue-950 hover:text-brand-blue-600 transition-colors"
                     >
                       <ShoppingCart size={16} />
                       Order History
@@ -159,7 +200,7 @@ export default function Header() {
                         setProfileDropdownOpen(false);
                         signOut({ callbackUrl: '/' });
                       }}
-                      className="flex w-full items-center gap-2 px-4 py-3 text-sm text-brand-error hover:bg-red-50 transition-colors border-t border-gray-200 mt-1"
+                      className="flex w-full items-center gap-2 px-4 py-3 text-sm text-brand-error hover:bg-red-50 dark:hover:bg-red-950/30 transition-colors border-t border-gray-200 dark:border-gray-700 mt-1"
                     >
                       <LogOut size={16} />
                       Sign Out
@@ -171,7 +212,7 @@ export default function Header() {
           ) : (
             <Link
               href="/login"
-              className="p-2 text-brand-dark hover:text-brand-blue-600 transition-colors"
+              className="p-2 text-gray-700 dark:text-gray-300 hover:text-brand-blue-600 dark:hover:text-brand-blue-400 transition-colors"
               aria-label="Login"
             >
               <User size={22} />
@@ -185,10 +226,10 @@ export default function Header() {
       {mobileMenuOpen && (
         <>
           <div
-            className="fixed inset-0 bg-brand-dark/40 backdrop-blur-sm z-40 lg:hidden"
+            className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 lg:hidden"
             onClick={() => setMobileMenuOpen(false)}
           />
-          <div className="fixed top-0 left-0 bottom-0 w-80 bg-brand-white z-50 p-6 flex flex-col justify-between shadow-premium lg:hidden">
+          <div className="fixed top-0 left-0 bottom-0 w-80 bg-white dark:bg-gray-950 z-50 p-6 flex flex-col justify-between shadow-premium lg:hidden">
             <div>
               <div className="flex items-center justify-between mb-8">
                 <Link href="/" className="flex items-center group">
@@ -228,20 +269,31 @@ export default function Header() {
                   </Link>
                 ))}
               </nav>
+
+              {/* Mobile theme toggle */}
+              {mounted && (
+                <button
+                  onClick={toggleTheme}
+                  className="mt-8 flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-brand-blue-50 dark:hover:bg-brand-blue-950 hover:text-brand-blue-600 dark:hover:text-brand-blue-400 transition-all"
+                >
+                  {isDark ? <Sun size={18} /> : <Moon size={18} />}
+                  {isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+                </button>
+              )}
             </div>
 
-            <div className="border-t border-gray-200 pt-6 mt-auto">
+            <div className="border-t border-gray-200 dark:border-gray-800 pt-6 mt-auto">
               {session ? (
                 <div className="flex flex-col gap-4">
                   <div className="mb-2">
-                    <p className="text-xs text-brand-muted">Signed in as</p>
-                    <p className="text-sm font-semibold text-brand-dark truncate">{session.user?.name || session.user?.email}</p>
+                    <p className="text-xs text-brand-muted dark:text-gray-400">Signed in as</p>
+                    <p className="text-sm font-semibold text-brand-dark dark:text-gray-100 truncate">{session.user?.name || session.user?.email}</p>
                   </div>
                   {isAdmin && (
                     <Link
                       href="/admin"
                       onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center gap-2 text-sm text-brand-dark hover:text-brand-blue-600"
+                      className="flex items-center gap-2 text-sm text-brand-dark dark:text-gray-200 hover:text-brand-blue-600"
                     >
                       <LayoutDashboard size={18} />
                       Admin Dashboard
@@ -250,7 +302,7 @@ export default function Header() {
                   <Link
                     href="/account"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center gap-2 text-sm text-brand-dark hover:text-brand-blue-600"
+                    className="flex items-center gap-2 text-sm text-brand-dark dark:text-gray-200 hover:text-brand-blue-600"
                   >
                     <User size={18} />
                     My Account
@@ -270,7 +322,7 @@ export default function Header() {
                 <Link
                   href="/login"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 w-full py-3 bg-brand-blue-600 hover:bg-brand-blue-700 text-brand-white font-medium rounded-btn transition-colors"
+                  className="flex items-center justify-center gap-2 w-full py-3 bg-brand-blue-600 hover:bg-brand-blue-700 text-white font-medium rounded-btn transition-colors"
                 >
                   Sign In
                 </Link>

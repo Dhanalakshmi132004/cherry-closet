@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import TrustTimeline from '@/components/storefront/TrustTimeline';
 import Image from 'next/image';
 import { prisma } from '@/lib/prisma';
 import {
@@ -829,6 +830,9 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Trust Timeline Section */}
+      <TrustTimeline />
 
       {/* 4. FINAL CTA SECTION (Mimicking the bottom shape) */}
       <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 text-center relative overflow-hidden">

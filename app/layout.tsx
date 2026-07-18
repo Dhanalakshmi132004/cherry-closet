@@ -35,8 +35,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn(poppinsSans.variable, poppinsSerif.variable, "scroll-smooth")}>
-      <body className="bg-brand-cream text-brand-charcoal min-h-screen antialiased selection:bg-brand-terracotta/20">
+    <html lang="en" suppressHydrationWarning className={cn(poppinsSans.variable, poppinsSerif.variable, "scroll-smooth")}>
+      <body className="min-h-screen antialiased selection:bg-brand-blue-200/40 dark:selection:bg-brand-blue-800/40">
         <Providers>
           {children}
         </Providers>
