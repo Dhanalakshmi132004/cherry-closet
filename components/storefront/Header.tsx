@@ -32,6 +32,7 @@ export default function Header() {
   const navLinks = [
     { name: 'Shop All', href: '/shop' },
     { name: 'Clothing', href: '/shop?collection=clothing' },
+    { name: "Women's Clothing", href: '/#womens-clothing' },
     { name: 'Accessories', href: '/shop?collection=accessories' },
     { name: 'Home & Living', href: '/shop?collection=home-and-living' },
     { name: 'Amigurumi', href: '/shop?collection=amigurumi' },

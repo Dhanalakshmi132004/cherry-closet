@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import TrustTimeline from '@/components/storefront/TrustTimeline';
+import DollFitCheck from '@/components/womens/DollFitCheck';
 import Image from 'next/image';
 import { prisma } from '@/lib/prisma';
 import {
@@ -829,6 +830,21 @@ export default async function HomePage() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* 3.10 WOMEN'S CLOTHING SECTION */}
+      <section id="womens-clothing" className="bg-white pt-24 pb-12 relative z-10">
+        <div className="bg-pink-50 border-y border-pink-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+            <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-6 tracking-tight">
+              The Chudidhar <span className="text-pink-600 italic">Collection</span>
+            </h2>
+            <p className="max-w-2xl mx-auto text-lg text-gray-600">
+              Experience our exclusive selection of beautifully crafted chudidhars. Use our virtual doll to see how they look before you buy.
+            </p>
+          </div>
+        </div>
+        <DollFitCheck />
       </section>
 
       {/* Trust Timeline Section */}
