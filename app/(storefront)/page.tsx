@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import TrustTimeline from '@/components/storefront/TrustTimeline';
 import DollFitCheck from '@/components/womens/DollFitCheck';
+import HeroCards from '@/components/storefront/HeroCards';
 import Image from 'next/image';
 import { prisma } from '@/lib/prisma';
 import {
@@ -72,29 +73,7 @@ export default async function HomePage() {
           </div>
 
           {/* Centerpiece Image (The "Phone" equivalent) */}
-          <div className="relative z-20 animate-float-delayed mt-20 sm:mt-10">
-            <div className="w-[300px] h-[550px] sm:w-[350px] sm:h-[650px] rounded-[48px] border-8 border-brand-white shadow-premium bg-brand-white overflow-hidden relative transform rotate-[-5deg] hover:rotate-0 transition-transform duration-700">
-              <Image
-                src="/banner.png"
-                alt="the SHA Closet premium crochet"
-                fill
-                priority
-                className="object-cover object-center"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-blue-900/40 to-transparent" />
-
-              {/* Internal Floating UI Element mimicking mobile notification */}
-              <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-[85%] bg-brand-white/80 backdrop-blur-md rounded-2xl p-4 shadow-lg flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-brand-blue-600 flex items-center justify-center text-brand-white flex-shrink-0">
-                  <ShieldCheck size={20} />
-                </div>
-                <div>
-                  <h4 className="text-xs font-bold text-brand-dark">Premium Quality</h4>
-                  <p className="text-[10px] text-brand-muted">100% Organic Yarn</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <HeroCards />
 
           {/* Floating Glass Pill 1 — Left: Orders */}
           <div className="absolute z-30 top-[38%] left-[3%] sm:left-[10%] lg:left-[16%] animate-fade-in-left" style={{ animationDelay: '0.2s' }}>
